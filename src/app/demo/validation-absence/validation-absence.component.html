@@ -1,0 +1,44 @@
+<!-- <div class="row">
+    <div class="col-sm-4" *ngFor="let card of cards">
+      <app-card [cardTitle]="card.type" blockClass="pc-component">
+        <div class="card-content">
+          <p>Type de Maladie: {{ card.type }}</p>
+          <p>Début: {{ card.debut }}</p>
+          <p>Fin: {{ card.fin }}</p>
+          <p>Status: {{ card.status }}</p>
+        </div>
+      </app-card>
+    </div>
+  </div>
+   -->
+
+
+   <div class="row">
+    <div class="col-sm-4" *ngFor="let card of cards">
+       
+      <app-card [cardTitle]="card.user" blockClass="pc-component">
+        
+        <div class="card-content">
+
+          <div class="line-container">
+            <!-- Ligne blanche -->
+            <div class="white-line"></div>
+          </div>
+          <div class="card-info">
+            <p>Début: {{ card.debut }}</p>
+            <p>Fin: {{ card.fin }}</p>
+            <select id="status" [(ngModel)]="card.status">
+              <option  value="Accepte">
+                  Accepte
+              </option>
+              <option  value="Accepte">
+                Refusé
+            </option>
+            </select>
+
+          </div>
+        </div>
+      </app-card>
+    </div>
+  </div>
+  

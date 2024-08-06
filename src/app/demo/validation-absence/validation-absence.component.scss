@@ -1,0 +1,31 @@
+/* Styles pour le conteneur de la carte */
+.card-content {
+    position: relative;
+    padding: 15px;
+  }
+  
+  /* Styles pour la ligne blanche */
+  .line-container {
+    margin-bottom: 10px; /* Espacement entre la ligne et l'image */
+  }
+  
+  .white-line {
+    height: 2px; /* Épaisseur de la ligne */
+    background-color: #ffffff; /* Couleur de la ligne blanche */
+  }
+  
+  /* Styles pour le conteneur de l'image */
+  .image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px; /* Espacement entre l'image et les infos */
+  }
+  
+  /* Styles pour l'image circulaire et petite */
+  .card-image {
+    width: 50px; /* Taille de l'image */
+    height: 50px; /* Taille de l'image */
+    border-radius: 50%; /* Rend l'image circulaire */
+    object-fit: cover; /* Maintient les proportions de l'image */
+  }
+  
