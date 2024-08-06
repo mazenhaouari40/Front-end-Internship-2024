@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script {
                     def buildDir = 'dist'
-                    def renderDeployHook = 'https://api.render.com/deploy/srv-cqgbidlds78s73cbvucg?key=xLwzueLfr3w'  
+                    def renderDeployHook = 'https://api.render.com/deploy/srv-cqp3h788fa8c73c60l90?key=Dv23QVVpjko'  
                     bat """
                         curl -X POST ^
                         -F "publishDir=@${buildDir}/" ^
