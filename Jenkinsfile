@@ -2,11 +2,13 @@ pipeline {
     agent any
     // tools { nodejs 'NODEJS' }
     stages {
-        stage('Install Dependencies') {
-            steps {
-                bat 'npm install --legacy-peer-deps'
-            }
-        }
+      
+        // stage('Install Dependencies') {
+        //     steps {
+        //         bat 'npm install --legacy-peer-deps'
+        //     }
+        // }
+      
      // stage('Testing Stage') {
      //        steps {
      //            // bat 'npm run ng test --no-watch --code-coverage'
