@@ -19,23 +19,23 @@ export interface NavigationItem {
 }
 
 export const NavigationItems: NavigationItem[] = [
-  {
-    id: 'dashboard',
-    title: 'Dashboard',
-    type: 'group',
-    icon: 'icon-navigation',
-    children: [
-      {
-        id: 'default',
-        title: 'Default',
-        type: 'item',
-        classes: 'nav-item',
-        url: '/dashboard/default',
-        icon: 'dashboard',
-        breadcrumbs: false
-      }
-    ]
-  },
+  // {
+  //   id: 'dashboard',
+  //   title: 'Dashboard',
+  //   type: 'group',
+  //   icon: 'icon-navigation',
+  //   children: [
+  //     {
+  //       id: 'default',
+  //       title: 'Default',
+  //       type: 'item',
+  //       classes: 'nav-item',
+  //       url: '/dashboard/default',
+  //       icon: 'dashboard',
+  //       breadcrumbs: false
+  //     }
+  //   ]
+  // },
   // {
   //   id: 'authentication',
   //   title: 'Authentication',
@@ -64,66 +64,47 @@ export const NavigationItems: NavigationItem[] = [
   //     }
   //   ]
   // },
-  {
-    id: 'utilities',
-    title: 'UI Components',
-    type: 'group',
-    icon: 'icon-navigation',
-    children: [
-      {
-        id: 'typography',
-        title: 'Typography',
-        type: 'item',
-        classes: 'nav-item',
-        url: '/typography',
-        icon: 'font-size'
-      },
-      {
-        id: 'color',
-        title: 'Colors',
-        type: 'item',
-        classes: 'nav-item',
-        url: '/color',
-        icon: 'bg-colors'
-      },
-      // {
-      //   id: 'tabler',
-      //   title: 'Tabler',
-      //   type: 'item',
-      //   classes: 'nav-item',
-      //   url: 'https://ant.design/components/icon',
-      //   icon: 'ant-design',
-      //   target: true,
-      //   external: true
-      // }
-    ]
-  },
-  {
-    id: 'other',
-    title: 'Other',
-    type: 'group',
-    icon: 'icon-navigation',
-    children: [
-      {
-        id: 'sample-page',
-        title: 'Sample Page',
-        type: 'item',
-        url: '/sample-page',
-        classes: 'nav-item',
-        icon: 'chrome'
-      },
-      // {
-      //   id: 'document',
-      //   title: 'Document',
-      //   type: 'item',
-      //   classes: 'nav-item',
-      //   url: 'https://codedthemes.gitbook.io/mantis-angular/',
-      //   icon: 'question',
-      //   target: true,
-      //   external: true
-      // }
-    ]
-  },
+  // {
+  //   id: 'utilities',
+  //   title: 'UI Components',
+  //   type: 'group',
+  //   icon: 'icon-navigation',
+  //   children: [
+  //     {
+  //       id: 'typography',
+  //       title: 'Typography',
+  //       type: 'item',
+  //       classes: 'nav-item',
+  //       url: '/typography',
+  //       icon: 'font-size'
+  //     },
+  //     {
+  //       id: 'color',
+  //       title: 'Colors',
+  //       type: 'item',
+  //       classes: 'nav-item',
+  //       url: '/color',
+  //       icon: 'bg-colors'
+  //     },
+
+  //   ]
+  // },
+  // {
+  //   id: 'other',
+  //   title: 'Other',
+  //   type: 'group',
+  //   icon: 'icon-navigation',
+  //   children: [
+  //     {
+  //       id: 'sample-page',
+  //       title: 'Sample Page',
+  //       type: 'item',
+  //       url: '/sample-page',
+  //       classes: 'nav-item',
+  //       icon: 'chrome'
+  //     }
+  //   ]
+  // },
 
 
 //mon travail
@@ -138,46 +119,47 @@ export const NavigationItems: NavigationItem[] = [
       type: 'item',
       url: '/Dashboard',
       classes: 'nav-item',
-      icon: 'chrome'
+      icon: 'dashboard'
     },
   ]
 },
   {
     id: '13',
-    title: 'User',
+    title: 'Collaborateur',
     type: 'group',
     children: [
       {
         id: 'listeabsence',
-        title: 'listeabsence',
+        title: 'Liste-absences',
         type: 'item',
         url: '/liste-absence',
         classes: 'nav-item',
-        icon: 'chrome'
+        icon: 'unordered-list'
       },
       {
         id: '15',
-        title: 'DemandeAbsence',
+        title: 'Demande-Absence',
         type: 'item',
         url: '/DemandeAbsence',
         classes: 'nav-item',
-        icon: 'chrome'
+        icon: 'edit'
       },
     ]
   },
   {
-    id: '13',
+    id: '14',
     title: 'Manager',
     type: 'group',
     children: [
       {
         id: 'Validationabsence',
-        title: 'Validationabsence',
+        title: 'Validation-Absence',
         type: 'item',
         url: '/ValidationAbsence',
         classes: 'nav-item',
-        icon: 'chrome'
-      },
+        icon: 'check-circle'
+      }
+
     ]
   }
 

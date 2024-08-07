@@ -1,14 +1,17 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+// import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
 
-  // private apiUrl = environment.server; 
-  private apiUrl = 'http://localhost:8081' ; 
+  // private apiUrl = environment.apiurl; 
+  // private apiUrl = 'http://localhost:8081' ; 
+  private apiUrl = 'https://backend-jenkins.onrender.com' ; 
+
 
   constructor(private http: HttpClient) { }
 
@@ -31,19 +34,19 @@ export class ServiceService {
   
 
   getAllUsers(): Observable<any[]> {
-    return this.http.get<any[]>("http://localhost:8081/user",{
+    return this.http.get<any[]>(this.apiUrl+"/user",{
       headers: this.createAuthorizationHeader()
     });
   }
 
   getUser(id : number): Observable<any> {
-    return this.http.get<any>("http://localhost:8081/user/"+id,{
+    return this.http.get<any>(this.apiUrl+"/user/"+id,{
       headers: this.createAuthorizationHeader()
     });
   }
 
   updateUser(id :number, body : any){
-    return this.http.put("http://localhost:8081/user/edit/"+id,body,{
+    return this.http.put(this.apiUrl+"/user/edit/"+id,body,{
       headers: this.createAuthorizationHeader()
     });
   }
@@ -63,4 +66,14 @@ export class ServiceService {
   isLoggedIn(): boolean {
     const token = localStorage.getItem("token");
     return !!token; // Returns true if token exists, otherwise false
-  }}
+  }
+
+  getAbsence(id : number): Observable<any> {
+    return this.http.get<any>(this.apiUrl+"/absence/"+id,{
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
+
+
+}

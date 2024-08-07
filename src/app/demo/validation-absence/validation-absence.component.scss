@@ -1,31 +1,162 @@
-/* Styles pour le conteneur de la carte */
-.card-content {
-    position: relative;
-    padding: 15px;
+// /* Styles pour le conteneur de la carte */
+// .card-content {
+//     position: relative;
+//     padding: 15px;
+//   }
+  
+//   /* Styles pour la ligne blanche */
+//   .line-container {
+//     margin-bottom: 10px; /* Espacement entre la ligne et l'image */
+//   }
+  
+//   .white-line {
+//     height: 2px; /* Épaisseur de la ligne */
+//     background-color: #ffffff; /* Couleur de la ligne blanche */
+//   }
+  
+//   /* Styles pour le conteneur de l'image */
+//   .image-container {
+//     display: flex;
+//     justify-content: center;
+//     margin-bottom: 10px; /* Espacement entre l'image et les infos */
+//   }
+  
+//   /* Styles pour l'image circulaire et petite */
+//   .card-image {
+//     width: 50px; /* Taille de l'image */
+//     height: 50px; /* Taille de l'image */
+//     border-radius: 50%; /* Rend l'image circulaire */
+//     object-fit: cover; /* Maintient les proportions de l'image */
+//   }
+  
+
+body {
+    background: #eee;
   }
   
-  /* Styles pour la ligne blanche */
-  .line-container {
-    margin-bottom: 10px; /* Espacement entre la ligne et l'image */
+  .page-container {
+    margin-top: 40px;
   }
   
-  .white-line {
-    height: 2px; /* Épaisseur de la ligne */
-    background-color: #ffffff; /* Couleur de la ligne blanche */
+  figure.user-card {
+    background: #ffffff;
+    padding: 20px;
+    border-top: 3px solid #f2f2f2;
+    border: 1px solid #e1e5f1;
+    text-align: center;
   }
   
-  /* Styles pour le conteneur de l'image */
-  .image-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px; /* Espacement entre l'image et les infos */
+  figure.user-card.red {
+    border-top: 3px solid #fc6d4c;
   }
   
-  /* Styles pour l'image circulaire et petite */
-  .card-image {
-    width: 50px; /* Taille de l'image */
-    height: 50px; /* Taille de l'image */
-    border-radius: 50%; /* Rend l'image circulaire */
-    object-fit: cover; /* Maintient les proportions de l'image */
+  figure.user-card.green {
+    border-top: 3px solid #3ecfac;
   }
   
+  figure.user-card.blue {
+    border-top: 3px solid #5a99ee;
+  }
+  
+  figure.user-card.yellow {
+    border-top: 3px solid #ffc139;
+  }
+  
+  figure.user-card.orange {
+    border-top: 3px solid #ff5000;
+  }
+  
+  figure.user-card.teal {
+    border-top: 3px solid #47BCC7;
+  }
+  
+  figure.user-card.pink {
+    border-top: 3px solid #ff9fd0;
+  }
+  
+  figure.user-card.brown {
+    border-top: 3px solid #79574b;
+  }
+  
+  figure.user-card.purple {
+    border-top: 3px solid #904e95;
+  }
+  
+  figure.user-card.fb {
+    border-top: 3px solid #3B5998;
+  }
+  
+  figure.user-card.gp {
+    border-top: 3px solid #E02F2F;
+  }
+  
+  figure.user-card .profile {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    max-width: 72px;
+    margin-bottom: 20px;
+  }
+  
+  figure.user-card h5 {
+    margin: 0 0 5px 0;
+  }
+  
+  figure.user-card h6 {
+    margin: 0 0 15px 0;
+    color: #8796af;
+    font-size: 14px;
+  }
+  
+  figure.user-card p {
+    margin: 0;
+    padding: 0 0 15px 0;
+    color: #8796af;
+    line-height: 150%;
+    font-size: 0.85rem;
+  }
+  
+  figure.user-card ul.contacts {
+    margin: 0;
+    padding: 0 0 15px 0;
+    line-height: 150%;
+    font-size: 0.85rem;
+  }
+  
+  figure.user-card ul.contacts li {
+    padding: 0.2rem 0;
+  }
+  
+  figure.user-card ul.contacts li a {
+    color: #5a99ee;
+  }
+  
+  figure.user-card ul.contacts li a i {
+    min-width: 36px;
+    float: left;
+    font-size: 1rem;
+  }
+  
+  figure.user-card ul.contacts li:last-child a {
+    color: #ff5000;
+  }
+  
+  ul li {
+    list-style-type: none;
+  }
+
+  .submit-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 7px 40px;
+    margin-top: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: darkgreen;
+  }

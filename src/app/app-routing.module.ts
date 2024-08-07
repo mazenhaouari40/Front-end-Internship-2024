@@ -48,7 +48,7 @@ const routes: Routes = [
       {
         path: 'DemandeAbsence',
         loadComponent: () => import('./demo/demande-absence/demande-absence.component').then(m => m.DemandeAbsenceComponent)
-      }
+      },
     ]
   },
   {
