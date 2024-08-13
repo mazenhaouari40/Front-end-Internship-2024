@@ -6,6 +6,7 @@ import { Router, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceService } from 'src/app/Service/service.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -22,9 +23,13 @@ export default class LoginComponent implements OnInit {
   loginForm: FormGroup | undefined;
   registrationError;
 
-  constructor(private router: Router,private service: ServiceService,
-    private fb:FormBuilder
+  constructor(
+    private router: Router,
+    private service: ServiceService,
+    private fb:FormBuilder,
+    private toastr : ToastrService
   ) {}
+  
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: ['',[Validators.required]],
@@ -36,19 +41,33 @@ export default class LoginComponent implements OnInit {
 
 
   submitForm(){
-    //  console.log("hello");
     console.log(this.loginForm.value);
     this.service.login(this.loginForm.value).subscribe(
       (Response) => {
         console.log(Response);
         this.registrationError = false;
         localStorage.setItem('token',Response.token);
-      
-        this.router.navigateByUrl("/dashboard/default");
-        
+        localStorage.setItem('user', JSON.stringify(Response.user));
+
+        if (Response.user.role === "admin"){
+        this.router.navigateByUrl("/Dashboard");
+        }
+        else{
+            if (Response.user.role === "manager"){
+              this.router.navigateByUrl("/ValidationAbsence");
+
+            }else{
+              this.router.navigateByUrl("/liste-absence");
+
+            }
+
+        }
+
+
       },  
       (error) => {
         console.error(error);
+        this.toastr.error("Votre email et mot de passe sont incorrects");
         this.registrationError = true;
       }
     );

@@ -23,16 +23,16 @@ export class NavGroupComponent implements OnInit {
 
   // Constructor
   constructor(private location: Location) {}
-
+  role : string;
   // Life cycle events
   ngOnInit() {
-    // at reload time active and trigger link
+    const userData = localStorage.getItem('user');
+    const user = JSON.parse(userData);
+
+    this.role = user.role;
+    
     let current_url = this.location.path();
-    // eslint-disable-next-line
-    // @ts-ignore
     if (this.location['_baseHref']) {
-      // eslint-disable-next-line
-      // @ts-ignore
       current_url = this.location['_baseHref'] + this.location.path();
     }
     const link = "a.nav-link[ href='" + current_url + "' ]";

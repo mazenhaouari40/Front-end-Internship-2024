@@ -47,29 +47,37 @@
     <meta charset="utf-8">
     <title>bs4 Contacts cards</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"> -->
 </head>
 <body>
 <div class="container page-container">
 <div class="row gutters">
 
 
-    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12"  *ngFor="let absence of absences">
     	<figure class="user-card green">
 			<figcaption>
-				<img src="assets/images/Mazen.jpg" alt="Soeng Souy" class="profile">
-				<h4>Mazen Haouari</h4>
-        <p>Type: Maladie</p>
-        <p>Début: 21-09-2024</p>
-        <p>Fin: 30-09-2024</p>
-        <select id="status" >
-          <option  value="Accepte">
-              Accepte
-          </option>
-          <option  value="Accepte">
-            Refusé
-        </option>
-        </select>
+
+				<!-- <img src="assets/images/Mazen.jpg" alt="Soeng Souy" class="profile"> -->
+				<img [src]="'data:image/png;base64,' + absence.user.imageencode_64bits" alt="Soeng Souy" class="profile">
+
+				<h4>{{absence.user.nom}}</h4>
+        
+				<p>Type: {{absence.type}}</p>
+        
+				<p>Début: {{ absence.debut_d | date:'yyyy-MM-dd' }}
+				</p>
+        
+				<p>Fin: {{absence.fin_d | date:'yyyy-MM-dd'}}</p>
+        
+				<select id="status"  >
+					<option  value="Accepte">
+						Accepte
+					</option>
+					<option  value="Accepte">
+						Refusé
+					</option>
+				</select>
+				
         <div class="button-container">
           <button type="submit" class="submit-button">Submit</button>
         </div>
@@ -78,7 +86,7 @@
 		</figure>
 	</div>
 
-  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
+  <!-- <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
     <figure class="user-card green">
     <figcaption>
       <img src="assets/images/Mazen.jpg" alt="Soeng Souy" class="profile">
@@ -100,410 +108,9 @@
 
     </figcaption>
   </figure>
-</div>   
+</div>    -->
 
 
-<div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
-  <figure class="user-card green">
-  <figcaption>
-    <img src="assets/images/Mazen.jpg" alt="Soeng Souy" class="profile">
-    <h4>Mazen Haouari</h4>
-    <p>Type: Maladie</p>
-    <p>Début: 21-09-2024</p>
-    <p>Fin: 30-09-2024</p>
-    <select id="status" >
-      <option  value="Accepte">
-          Accepte
-      </option>
-      <option  value="Accepte">
-        Refusé
-    </option>
-    </select>
-    <div class="button-container">
-      <button type="submit" class="submit-button">Submit</button>
-    </div>
-
-  </figcaption>
-</figure>
-</div>    
-
-
-<div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
-  <figure class="user-card green">
-  <figcaption>
-    <img src="assets/images/Mazen.jpg" alt="Soeng Souy" class="profile">
-    <h4>Mazen Haouari</h4>
-    <p>Type: Maladie</p>
-    <p>Début: 21-09-2024</p>
-    <p>Fin: 30-09-2024</p>
-    <select id="status" >
-      <option  value="Accepte">
-          Accepte
-      </option>
-      <option  value="Accepte">
-        Refusé
-    </option>
-    </select>
-    <div class="button-container">
-      <button type="submit" class="submit-button">Submit</button>
-    </div>
-
-  </figcaption>
-</figure>
-</div>
-
-<div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
-	<figure class="user-card green">
-	<figcaption>
-	  <img src="assets/images/Mazen.jpg" alt="Soeng Souy" class="profile">
-	  <h4>Mazen Haouari</h4>
-	  <p>Type: Maladie</p>
-	  <p>Début: 21-09-2024</p>
-	  <p>Fin: 30-09-2024</p>
-	  <select id="status" >
-		<option  value="Accepte">
-			Accepte
-		</option>
-		<option  value="Accepte">
-		  Refusé
-	  </option>
-	  </select>
-	  <div class="button-container">
-		<button type="submit" class="submit-button">Submit</button>
-	  </div>
-  
-	</figcaption>
-  </figure>
-  </div>
-
-
-
-
-
-  <!-- <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
-    <figure class="user-card green">
-    <figcaption>
-      <img src="assets/images/Mazen.jpg" alt="Soeng Souy" class="profile">
-      <h5>Soeng Souy</h5>
-      <h6>ff</h6>
-      <p>On the 28th of October 2020 we completed a 3-part transaction with the contractor.</p>
-      <ul class="contacts">
-        <li>
-          <a href="#">
-            usersoengsouy.com
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            www.soengsouy.com
-          </a>
-        </li>
-      </ul>
-      <div class="clearfix">
-        <span class="badge badge-pill badge-info">#HTML5</span>
-        <span class="badge badge-pill badge-success">#CSS3</span>
-        <span class="badge badge-pill badge-orange">#Angular JS</span>
-      </div>
-    </figcaption>
-  </figure>
-</div> -->
-	<!-- <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
-		<figure class="user-card blue">
-			<figcaption>
-				<img src="image/logo.png" alt="Soeng Souy" class="profile">
-				<h5>Cong Ly</h5>
-				<h6>hollywood</h6>
-				<p>On the 28th of October 2019 we completed a 3-part transaction with the contractor.</p>
-				<ul class="contacts">
-					<li>
-						<a href="#">
-							usersoengsouy.com
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							www.soengsouy.com
-						</a>
-					</li>
-				</ul>
-				<div class="clearfix">
-					<span class="badge badge-pill badge-info">#HTML5</span>
-					<span class="badge badge-pill badge-success">#CSS3</span>
-					<span class="badge badge-pill badge-orange">#Angular JS</span>
-				</div>
-			</figcaption>
-		</figure>
-	</div>
-	<div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
-		<figure class="user-card pink">
-			<figcaption>
-				<img src="image/logo.png" alt="Soeng Souy" class="profile">
-				<h5>Star Game</h5>
-				<h6>gamestar</h6>
-				<p>On the 28th of October 2018 we completed a 3-part transaction with the contractor.</p>
-				<ul class="contacts">
-					<li>
-						<a href="#">
-							usersoengsouy.com
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							www.soengsouy.com
-						</a>
-					</li>
-				</ul>
-				<div class="clearfix">
-					<span class="badge badge-pill badge-info">#HTML5</span>
-					<span class="badge badge-pill badge-success">#CSS3</span>
-					<span class="badge badge-pill badge-orange">#Angular JS</span>
-				</div>
-			</figcaption>
-		</figure>
-	</div>
-	<div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
-		<figure class="user-card brown">
-			<figcaption>
-				<img src="image/logo.png" alt="Soeng Souy" class="profile">
-				<h5>To Ly</h5>
-				<h6>business</h6>
-				<p>On the 28th of October 2017 we completed a 3-part transaction with the contractor.</p>
-				<ul class="contacts">
-					<li>
-						<a href="#">
-							usersoengsouy.com
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							www.soengsouy.com
-						</a>
-					</li>
-				</ul>
-				<div class="clearfix">
-					<span class="badge badge-pill badge-info">#HTML5</span>
-					<span class="badge badge-pill badge-success">#CSS3</span>
-					<span class="badge badge-pill badge-orange">#Angular JS</span>
-				</div>
-			</figcaption>
-		</figure>
-	</div>
-	<div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
-		<figure class="user-card fb">
-			<figcaption>
-				<img src="image/logo.png" alt="Soeng Souy" class="profile">
-				<h5>Harry</h5>
-				<h6>writer</h6>
-				<p>On the 28th of October 2016 we completed a 3-part transaction with the contractor.</p>
-				<ul class="contacts">
-					<li>
-						<a href="#">
-							usersoengsouy.com
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							www.soengsouy.com
-						</a>
-					</li>
-				</ul>
-				<div class="clearfix">
-					<span class="badge badge-pill badge-info">#HTML5</span>
-					<span class="badge badge-pill badge-success">#CSS3</span>
-					<span class="badge badge-pill badge-orange">#Angular JS</span>
-				</div>
-			</figcaption>
-		</figure>
-	</div>
-	<div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
-		<figure class="user-card green">
-			<figcaption>
-				<img src="image/logo.png" alt="Soeng Souy" class="profile">
-				<h5>George</h5>
-				<h6>tester</h6>
-				<p>On the 28th of October 2016 we completed a 3-part transaction with the contractor.</p>
-				<ul class="contacts">
-					<li>
-						<a href="#">
-							usersoengsouy.com
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							www.soengsouy.com
-						</a>
-					</li>
-				</ul>
-				<div class="clearfix">
-					<span class="badge badge-pill badge-info">#HTML5</span>
-					<span class="badge badge-pill badge-success">#CSS3</span>
-					<span class="badge badge-pill badge-orange">#Angular JS</span>
-				</div>
-			</figcaption>
-		</figure>
-	</div>
-	<div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
-		<figure class="user-card red">
-			<figcaption>
-				<img src="image/logo.png" alt="Soeng Souy" class="profile">
-				<h5>Emily</h5>
-				<h6>designer</h6>
-				<p>On the 28th of October 2016 we completed a 3-part transaction with the contractor.</p>
-				<ul class="contacts">
-					<li>
-						<a href="#">
-							usersoengsouy.com
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							www.soengsouy.com
-						</a>
-					</li>
-				</ul>
-				<div class="clearfix">
-					<span class="badge badge-pill badge-info">#HTML5</span>
-					<span class="badge badge-pill badge-success">#CSS3</span>
-					<span class="badge badge-pill badge-orange">#Angular JS</span>
-				</div>
-			</figcaption>
-		</figure>
-	</div>
-	<div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
-		<figure class="user-card orange">
-			<figcaption>
-				<img src="image/logo.png" alt="Soeng Souy" class="profile">
-				<h5>Julie</h5>
-				<h6>fashion</h6>
-				<p>On the 28th of October 2016 we completed a 3-part transaction with the contractor.</p>
-				<ul class="contacts">
-					<li>
-						<a href="#">
-							usersoengsouy.com
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							www.soengsouy.com
-						</a>
-					</li>
-				</ul>
-				<div class="clearfix">
-					<span class="badge badge-pill badge-info">#HTML5</span>
-					<span class="badge badge-pill badge-success">#CSS3</span>
-					<span class="badge badge-pill badge-orange">#Angular JS</span>
-				</div>
-			</figcaption>
-		</figure>
-	</div>
-	<div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
-		<figure class="user-card teal">
-			<figcaption>
-				<img src="image/logo.png" alt="Soeng Souy" class="profile">
-				<h5>Taylor</h5>
-				<h6>marketing</h6>
-				<p>On the 28th of October 2016 we completed a 3-part transaction with the contractor.</p>
-				<ul class="contacts">
-					<li>
-						<a href="#">
-							usersoengsouy.com
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							www.soengsouy.com
-						</a>
-					</li>
-				</ul>
-				<div class="clearfix">
-					<span class="badge badge-pill badge-info">#HTML5</span>
-					<span class="badge badge-pill badge-success">#CSS3</span>
-					<span class="badge badge-pill badge-orange">#Angular JS</span>
-				</div>
-			</figcaption>
-		</figure>
-	</div>
-	<div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
-		<figure class="user-card gp">
-			<figcaption>
-				<img src="image/logo.png" alt="Soeng Souy" class="profile">
-				<h5>Roberts</h5>
-				<h6>actress</h6>
-				<p>On the 28th of October 2016 we completed a 3-part transaction with the contractor.</p>
-				<ul class="contacts">
-					<li>
-						<a href="#">
-							usersoengsouy.com
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							www.soengsouy.com
-						</a>
-					</li>
-				</ul>
-				<div class="clearfix">
-					<span class="badge badge-pill badge-info">#HTML5</span>
-					<span class="badge badge-pill badge-success">#CSS3</span>
-					<span class="badge badge-pill badge-orange">#Angular JS</span>
-				</div>
-			</figcaption>
-		</figure>
-	</div> -->
-	<!-- <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
-		<figure class="user-card blue">
-			<figcaption>
-				<img src="image/logo.png" alt="Soeng Souy" class="profile">
-				<h5>O'Sullivan</h5>
-				<h6>@smart</h6>
-				<p>On the 28th of October 2016 we completed a 3-part transaction with the contractor.</p>
-				<ul class="contacts">
-					<li>
-						<a href="#">
-							user@soengsouy.com
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							www.soengsouy.com
-						</a>
-					</li>
-				</ul>
-				<div class="clearfix">
-					<span class="badge badge-pill badge-info">#HTML5</span>
-					<span class="badge badge-pill badge-success">#CSS3</span>
-					<span class="badge badge-pill badge-orange">#Angular JS</span>
-				</div>
-			</figcaption>
-		</figure>
-	</div> -->
-	<!-- <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
-		<figure class="user-card orange">
-			<figcaption>
-				<img src="image/logo.png" alt="Soeng Souy" class="profile">
-				<h5>O'Brien</h5>
-				<h6>@football</h6>
-				<p>On the 28th of October 2016 we completed a 3-part transaction with the contractor.</p>
-				<ul class="contacts">
-					<li>
-						<a href="#">
-							user@soengsouy.com
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							www.soengsouy.com
-						</a>
-					</li>
-				</ul>
-				<div class="clearfix">
-					<span class="badge badge-pill badge-info">#HTML5</span>
-					<span class="badge badge-pill badge-success">#CSS3</span>
-					<span class="badge badge-pill badge-orange">#Angular JS</span>
-				</div>
-			</figcaption>
-		</figure>
-	</div> -->
 </div>
 </div>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>

@@ -18,7 +18,10 @@ export class ListeAbsenceComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.service.getAbsence(1).subscribe(
+    const userData = localStorage.getItem('user');
+    let user = JSON.parse(userData);
+    
+    this.service.getAbsence(user.id).subscribe(
       (response) => {
         this.cards = response;
       },

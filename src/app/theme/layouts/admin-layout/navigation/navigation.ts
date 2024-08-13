@@ -1,6 +1,7 @@
 export interface NavigationItem {
   id: string;
   title: string;
+  role?: string;
   type: 'item' | 'collapse' | 'group';
   translate?: string;
   icon?: string;
@@ -112,6 +113,7 @@ export const NavigationItems: NavigationItem[] = [
   id: 'admin',
   title: 'Admin',
   type: 'group',
+  role :'admin',
   children: [
     {
       id: 'Dashboard',
@@ -121,11 +123,20 @@ export const NavigationItems: NavigationItem[] = [
       classes: 'nav-item',
       icon: 'dashboard'
     },
+    // {
+    //   id: 'User',
+    //   title: 'Ajouter un utilisateur',
+    //   type: 'item',
+    //   url: '/UserForm',
+    //   classes: 'nav-item',
+    //   icon: 'edit'
+    // },
   ]
 },
   {
     id: '13',
     title: 'Collaborateur',
+    role :'collaborateur',
     type: 'group',
     children: [
       {
@@ -149,6 +160,7 @@ export const NavigationItems: NavigationItem[] = [
   {
     id: '14',
     title: 'Manager',
+    role :'manager',
     type: 'group',
     children: [
       {

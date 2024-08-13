@@ -49,6 +49,15 @@ const routes: Routes = [
         path: 'DemandeAbsence',
         loadComponent: () => import('./demo/demande-absence/demande-absence.component').then(m => m.DemandeAbsenceComponent)
       },
+      {
+        path: 'UserForm',
+        loadComponent: () => import('./demo/user-form/user-form.component').then(m => m.UserFormComponent)
+      },
+      {
+        path: 'edit/:id',
+        loadComponent: () => import('./demo/user-form/user-form.component').then(m => m.UserFormComponent)
+      }
+
     ]
   },
   {

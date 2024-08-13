@@ -40,38 +40,54 @@
   </div>
    -->
 
-
    <div class="row justify-content-center">
     <div class="col-md-12 col-xl-10">
-      <!-- <h5 class="mb-3 text-center">Recent Users</h5> -->
       <div class="card tbl-card" style="min-height: 500px;">
         <div class="table-responsive">
           <table class="table table-hover mb-0">
             <thead>
               <tr>
                 <th>ID</th>
+                <th>Image</th>
                 <th>E-mail</th>
                 <th>Nom et Prénom</th>
+                <th>Rôle</th>
                 <th>Numéro de Téléphone</th>
+                <th>Manager</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              @for (user of recentUsers; track user) {
-                <tr>
-                  <td>
-                    <a href="javascript:" class="text-muted">{{ user.id }}</a>
-                  </td>
-                  <td>{{ user.email }}</td>
-                  <td>{{ user.fullName }}</td>
-                  <td>{{ user.numTel }}</td>
-                  <td>
-                    <!-- Example action buttons -->
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Delete</button>
-                  </td>
-                </tr>
-              }
+
+              <tr *ngFor="let user of recentUsers">
+                <td>
+                  <a href="javascript:" class="text-muted">{{ user.id }}</a>
+                </td>
+                <td>
+                  <img *ngIf="user.image" [src]="'data:image/png;base64,' + user.image" alt="user-image" class="user-avatar me-2" />
+                </td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.nom }}</td>
+                <td>{{ user.role }}</td> 
+                <td>{{ user.num_tel }}</td>
+                <td>{{ user.manager }}</td>
+
+                <td>
+                  <button class="btn-icon edit" [routerLink]="['/edit', user.id]">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                      <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.41l-2.34-2.34a1.003 1.003 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                    </svg>
+                  </button>
+                  <button class="btn-icon delete" (click)="delete(user.id)">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                      <path d="M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12zM16.5 4l-1-1h-7l-1 1H5v2h14V4z"/>
+                    </svg>
+                  </button>
+                </td>
+
+
+
+              </tr>
             </tbody>
           </table>
         </div>

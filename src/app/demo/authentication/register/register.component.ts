@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { NgIf } from '@angular/common';
 import { ServiceService } from 'src/app/Service/service.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -24,7 +25,9 @@ export default class RegisterComponent  implements OnInit {
 
  constructor(
    private service: ServiceService,
-   private fb:FormBuilder
+   private fb:FormBuilder,
+   private toastr : ToastrService
+
  ){}
 
  ngOnInit(): void {
@@ -36,7 +39,6 @@ export default class RegisterComponent  implements OnInit {
      confirmPassword : ['',[Validators.required]],
    },{validator: this.passwordValidator}
  )
-
  }
 
  passwordValidator(FormGroup: FormGroup){
@@ -52,15 +54,22 @@ export default class RegisterComponent  implements OnInit {
 
  submitForm(){
    console.log(this.registerForm.value);
-   this.service.register(this.registerForm.value).subscribe(
+   const formValue = this.registerForm.value;
+   const submissionData = {
+    ...formValue,
+    role: "collaborateur"
+  };
+
+
+   this.service.register(submissionData).subscribe(
      (Response) => {
-       console.log(Response);
-       this.isRegistrationSuccessful = true;
+      this.toastr.success("User added successfully");
+      this.isRegistrationSuccessful = true;
        this.registrationError = false;
      },
      (error) => {
-       console.error(error);
-       this.isRegistrationSuccessful = false; 
+      this.toastr.error("This email already exists");
+      this.isRegistrationSuccessful = false; 
        this.registrationError = true;
      }
    );

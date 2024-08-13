@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { CommonModule, NgFor } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { ServiceService } from 'src/app/Service/service.service';
 import tableData from 'src/fake-data/default-data.json';
 
 interface User {
@@ -11,19 +16,50 @@ interface User {
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [],
+  imports: [HttpClientModule,CommonModule,RouterModule],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+  styleUrl: './dashboard.component.scss',
+  providers : [ServiceService,HttpClient]
 })
-export class DashboardComponent {
-  recentUsers: User[] = [
-    // Exemple d'initialisation des utilisateurs
-    { id: 1, email: 'user1@example.com', fullName: 'John Doe', numTel: '123-456-7890' },
-    { id: 2, email: 'user2@example.com', fullName: 'Jane Smith', numTel: '098-765-4321' }
-    // Ajoutez d'autres utilisateurs ici
-  ];
 
-  trackByUser(index: number, user: User): number {
-    return user.id;
+export class DashboardComponent implements OnInit {
+  recentUsers: any[] = []; 
+
+  constructor(
+    private service : ServiceService,
+    private toastr : ToastrService
+  ){}
+
+  ngOnInit(): void {
+    this.service.getUsersAdmin().subscribe(
+      (users: any[]) => {
+        this.recentUsers = users;
+        console.log(this.recentUsers);
+      },
+      error => {
+        console.error('Error fetching users:', error);
+      }
+    );
+
+
+    
   }
+
+
+  delete(id: number): void {
+    const userData = localStorage.getItem('user');
+    let user = JSON.parse(userData);
+    if (user.id == id){
+      this.toastr.error("You can't delete the current user.");
+    }else{
+    this.service.deleteUser(id)
+    .subscribe(
+        response => {
+            window.location.reload();
+          });      
+        
+        }
+
+      }
+
 }

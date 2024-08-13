@@ -1,14 +1,35 @@
-import { Component } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { ServiceService } from 'src/app/Service/service.service';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 
 @Component({
   selector: 'app-validation-absence',
   standalone: true,
-  imports: [SharedModule],
+  imports: [SharedModule,HttpClientModule],
   templateUrl: './validation-absence.component.html',
-  styleUrl: './validation-absence.component.scss'
+  styleUrl: './validation-absence.component.scss',
+  providers : [ServiceService,HttpClient]
 })
-export class ValidationAbsenceComponent {
+export class ValidationAbsenceComponent implements OnInit{
+
+  constructor(
+private service : ServiceService
+
+  ){  }
+  absences: any[] = []; 
+
+ngOnInit(): void {
+  const userData = localStorage.getItem('user');
+  let user = JSON.parse(userData);
+  
+  this.service.getabsencebymanager(user.id).subscribe(
+  (response) => {
+      this.absences = response;
+  });
+}
+
+
   cards = [
     {
       user: 'Mazen Haouari ',

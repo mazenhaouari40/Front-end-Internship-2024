@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 export class ServiceService {
 
   // private apiUrl = environment.apiurl; 
-  // private apiUrl = 'http://localhost:8081' ; 
-  private apiUrl = 'https://backend-jenkins.onrender.com' ; 
+  private apiUrl = 'http://localhost:8081' ; 
+  // private apiUrl = 'https://backend-jenkins.onrender.com' ; 
 
 
   constructor(private http: HttpClient) { }
@@ -74,6 +74,50 @@ export class ServiceService {
     });
   }
 
+  ImageUser(id : number): Observable<any> {
+    return this.http.get<any>(this.apiUrl+"/user/image/"+id,{
+      headers: this.createAuthorizationHeader()
+    });
+  }
 
 
+    EditProfile(body: FormData,id : number){
+      console.log(this.apiUrl+'/user/editProfile/'+id)
+      return  this.http.put(this.apiUrl+'/user/editProfile/'+id, body,{
+          headers: this.createAuthorizationHeader()
+        });
+      }
+
+
+    addabsence(body: any){
+      return  this.http.post(this.apiUrl+'/absence', body,{
+          headers: this.createAuthorizationHeader()
+        });
+      }
+
+
+      getUsersAdmin(): Observable<any[]> {
+        return this.http.get<any[]>(this.apiUrl+"/admin/users",{
+          headers: this.createAuthorizationHeader()
+        });
+      }
+
+      getManagers(id : number): Observable<any[]> {
+        return this.http.get<any>(this.apiUrl+"/admin/managers/"+id,{
+          headers: this.createAuthorizationHeader()
+        });
+      }
+
+      EditProfile_admin(body: FormData,id : number){
+        console.log(this.apiUrl+'/admin/edituser/'+id)
+        return  this.http.put(this.apiUrl+'/admin/edituser/'+id, body,{
+            headers: this.createAuthorizationHeader()
+          });
+        }
+
+        getabsencebymanager(id : number): Observable<any[]> {
+          return this.http.get<any>(this.apiUrl+"/absence/manager/"+id,{
+            headers: this.createAuthorizationHeader()
+          });
+        }
 }

@@ -9,10 +9,12 @@
    <body>
     <div class="container">
         <div class="text">Demande Absence</div>
-        <form action="#">
+
+
+        <form  [formGroup]="DemandeAbsence" (ngSubmit)="submitForm()" >
            <div class="form-row">
               <div class="input-data">
-                 <input type="text" required>
+                 <input type="text"  formControlName="type" required>
                  <div class="underline"></div>
                  <label for="">Type maladie</label>
               </div>
@@ -20,7 +22,8 @@
 
            <div class="form-row">
             <div class="input-data">
-               <input type="date" required>
+               <input type="date" formControlName="debut_d" required>
+
                <div class="underline"></div>
                <label for="">Debut </label>
             </div>
@@ -28,7 +31,7 @@
 
          <div class="form-row">
             <div class="input-data">
-               <input type="Date" required>
+               <input type="Date" formControlName="fin_d" required>
                <div class="underline"></div>
                <label for="">Fin </label>
             </div>
@@ -40,7 +43,7 @@
                  <div class="form-row submit-btn">
                     <div class="input-data">
                        <div class="inner"></div>
-                       <input type="submit" value="submit">
+                       <input type="submit" [disabled]="DemandeAbsence.invalid" value="submit">
                     </div>
                  </div>
 
@@ -48,6 +51,8 @@
               </div>
            </div>
         </form>
+
+
      </div>
    </body>
 </html>

@@ -1,11 +1,6 @@
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
 
 <ul class="list-unstyled">
-  <!-- <li class="pc-h-item">
-    <a class="pc-head-link me-0 bg-gray-200">
-      <i antIcon type="github" theme="outline"></i>
-    </a>
-  </li>
+
   <li class="dropdown pc-h-item" ngbDropdown>
     <a class="pc-head-link dropdown-toggle arrow-none me-0 bg-gray-200" data-bs-toggle="dropdown" ngbDropdownToggle>
       <i antIcon type="bell" theme="outline"></i>
@@ -20,37 +15,8 @@
       <ng-scrollbar style="min-height: 300px" visibility="hover">
         <div class="dropdown-header px-0 text-wrap header-notification-scroll">
           <div class="list-group list-group-flush w-100">
-            <a class="list-group-item list-group-item-action">
-              <div class="d-flex">
-                <div class="flex-shrink-0">
-                  <div class="user-avatar bg-light-success"><i class="d-flex" antIcon theme="outline" type="gift"></i></div>
-                </div>
-                <div class="flex-grow-1 ms-3">
-                  <span class="float-end text-muted">3:00 AM</span>
-                  <p class="text-body mb-0">
-                    It's
-                    <b>Cristina danny's</b>
-                    birthday today.
-                  </p>
-                  <span class="text-muted">2 min ago</span>
-                </div>
-              </div>
-            </a>
-            <a class="list-group-item list-group-item-action">
-              <div class="d-flex">
-                <div class="flex-shrink-0">
-                  <div class="user-avatar bg-light-primary"><i class="d-flex" antIcon theme="outline" type="message"></i></div>
-                </div>
-                <div class="flex-grow-1 ms-3">
-                  <span class="float-end text-muted">6:00 PM</span>
-                  <p class="text-body mb-1">
-                    <b>Aida Burg</b>
-                    commented your post.
-                  </p>
-                  <span class="text-muted">5 August</span>
-                </div>
-              </div>
-            </a>
+
+
             <a class="list-group-item list-group-item-action">
               <div class="d-flex">
                 <div class="flex-shrink-0">
@@ -66,22 +32,8 @@
                 </div>
               </div>
             </a>
-            <a class="list-group-item list-group-item-action">
-              <div class="d-flex">
-                <div class="flex-shrink-0">
-                  <div class="user-avatar bg-light-primary"><i class="d-flex" antIcon theme="outline" type="phone"></i></div>
-                </div>
-                <div class="flex-grow-1 ms-3">
-                  <span class="float-end text-muted">9:10 PM</span>
-                  <p class="text-body mb-1">
-                    <b>Cristina Danny</b>
-                    invited to join
-                    <b>Meeting.</b>
-                  </p>
-                  <span class="text-muted">Daily scrum meeting time</span>
-                </div>
-              </div>
-            </a>
+
+
           </div>
         </div>
       </ng-scrollbar>
@@ -90,23 +42,27 @@
         <a class="link-primary">View all</a>
       </div>
     </div>
-  </li> -->
+  </li>
   <li class="dropdown pc-h-item header-user-profile" ngbDropdown>
     <a class="pc-head-link dropdown-toggle arrow-none me-0" ngbDropdownToggle>
-      <img src="assets/images/Mazen.jpg" alt="user-image" class="user-avatar me-2" />
-      <span class="f-w-600">Mazen Haouari</span>
+      
+      <img *ngIf="userimage.image" [src]="'data:image/png;base64,' + userimage.image"  alt="user-image" class="user-avatar me-2" />
+      
+      <span class="f-w-600">{{user.nom}}</span>
     </a>
     <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown" ngbDropdownMenu>
       <div class="dropdown-header">
         <div class="d-flex mb-1">
           <div class="flex-shrink-0">
-            <img src="assets/images/Mazen.jpg" alt="user-image" class="user-avatar wid-35" />
+
+            <img  *ngIf="userimage.image" [src]="'data:image/png;base64,' + userimage.image"  alt="user-image" class="user-avatar me-2" />
+
           </div>
           <div class="flex-grow-1 ms-3 text-start">
-            <h6 class="mb-0">Mazen Haouari</h6>
-            <span>Collaborateur</span>
+            <h6 class="mb-0">{{user.nom}}</h6>
+            <span>{{user.role}}</span>
           </div>
-          <a href="javascript:" class="bg-transparent"><i class="d-flex f-20" antIcon theme="outline" type="logout"></i></a>
+          <a href="javascript:" class="bg-transparent"><i class="d-flex f-20" antIcon theme="outline" type="logout"  (click)="logout()"></i></a>
         </div>
       </div>
       <ul ngbNav #nav="ngbNav" class="nav drp-tabs nav-fill nav-tabs">
@@ -118,17 +74,6 @@
           <ng-template ngbNavContent>
 
             
-            <!-- @for (task of profile; track task) {
-              <div>
-                <a class="dropdown-item">
-                  <i class="text-muted" antIcon theme="outline" type="{{ task.icon }}"></i>
-                  <span>{{ task.title }}</span>
-                </a>
-              </div>
-            } -->
-            
-
-
 
               <div>
                 <a class="dropdown-item" (click)="openPopup()">
@@ -139,18 +84,6 @@
 
 
 
-
-
-
-
-            
-              <!-- <div>
-                <a class="dropdown-item">
-                  <i class="text-muted" antIcon theme="outline" type="user"></i>
-                  <span>View Profile</span>
-                </a>
-              </div> -->
-
             <div>
               <a class="dropdown-item" (click)="logout()">
                 <i class="text-muted" antIcon theme="outline" type="logout"></i>
@@ -160,91 +93,82 @@
             </div>
           </ng-template>
         </li>
-        <!-- <li ngbNavItem="2">
-          <a ngbNavLink>
-            <i class="me-2" antIcon theme="outline" type="setting"></i>
-            Setting
-          </a>
-          <ng-template ngbNavContent>
-            @for (task of setting; track task) {
-              <div>
-                <a class="dropdown-item">
-                  <i class="text-muted" antIcon theme="outline" type="{{ task.icon }}"></i>
-                  <span>{{ task.title }}</span>
-                </a>
-              </div>
-            }
-          </ng-template>
-        </li> -->
+
       </ul>
-      
       <div [ngbNavOutlet]="nav"></div>
-      
     </div>
-  </li>
-
-
-  
+  </li>  
 </ul>
 
 
+<!-- Popup  -->
 
-
-
-<!-- <button (click)="openPopup()">Open Form</button> -->
 
 <div class="popup" *ngIf="showPopup">
   <div class="popup-content">
     <h1>Edit Profile</h1>
     <span class="close" (click)="closePopup()">&times;</span>
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+
       <div class="form-group">
         <label for="nom">Nom:</label>
-        <input id="nom" formControlName="nom" type="text" />
-        <div *ngIf="userForm.get('nom')?.invalid && userForm.get('nom')?.touched">
+        <input id="nom"  type="text" formControlName="nom" [(ngModel)]="user_copy.nom" />
+        <!-- <div *ngIf="userForm.get('nom')?.invalid ">
           <small class="error">Nom is required</small>
-        </div>
+        </div> -->
       </div>
 
       <div class="form-group">
         <label for="email">Email:</label>
-        <input id="email" formControlName="email" type="email" />
-        <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+        <input id="email"  type="email" formControlName="email" [(ngModel)]="user_copy.email" readonly  />
+        <!-- <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
           <small class="error" *ngIf="userForm.get('email')?.hasError('required')">Email is required</small>
           <small class="error" *ngIf="userForm.get('email')?.hasError('email')">Invalid email</small>
-        </div>
+        </div> -->
       </div>
 
       <div class="form-group">
         <label for="num_tel">Num Tel:</label>
-        <input id="num_tel" formControlName="num_tel" type="text" />
-        <div *ngIf="userForm.get('num_tel')?.invalid && userForm.get('num_tel')?.touched">
+        <input id="num_tel" type="text" formControlName="num_tel" [(ngModel)]="user_copy.num_tel"/>
+        <!-- <div *ngIf="userForm.get('num_tel')?.invalid && userForm.get('num_tel')?.touched">
           <small class="error" *ngIf="userForm.get('num_tel')?.hasError('required')">Phone number is required</small>
-          <!-- <small class="error" *ngIf="userForm.get('num_tel')?.hasError('pattern')">Invalid phone number</small> -->
-        </div>
+          <small class="error" *ngIf="userForm.get('num_tel')?.hasError('pattern')">Invalid phone number</small>
+        </div> -->
       </div>
 
-      <div class="form-group">
-        <label for="role">Role:</label>
-        <select id="role" formControlName="role">
-          <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
-        </select>
-      </div>
+
 
       <div class="form-group">
-        <label for="manager">Manager:</label>
-        <select id="manager" formControlName="manager">
-          <option *ngFor="let manager of managers" [value]="manager">{{ manager }}</option>
-        </select>
+        <label for="num_tel">Password:</label>
+        <input id="password"  type="password" formControlName="password"/>
+        <!-- <div *ngIf="userForm.get('num_tel')?.invalid && userForm.get('num_tel')?.touched">
+          <small class="error" *ngIf="userForm.get('num_tel')?.hasError('required')">Phone number is required</small> 
+           <small class="error" *ngIf="userForm.get('num_tel')?.hasError('pattern')">Invalid phone number</small>
+        </div> -->
       </div>
+
+
+      <div class="form-group">
+        <label for="num_tel">Confirm Password:</label>
+        <input id="ConfirmPassword"  type="password" formControlName="confirmpassword" />
+        <!-- <div *ngIf="userForm.get('num_tel')?.invalid && userForm.get('num_tel')?.touched">
+          <small class="error" *ngIf="userForm.get('num_tel')?.hasError('required')">Phone number is required</small>
+          <small class="error" *ngIf="userForm.get('num_tel')?.hasError('pattern')">Invalid phone number</small>
+        </div> -->
+      </div>
+
 
       <div class="form-group">
         <label for="image">Image:</label>
         <input id="image" type="file" (change)="onFileChange($event)" />
       </div>
 
-      <button type="submit">Submit</button>
+      <button type="submit"  [disabled]="userForm.invalid">Submit</button>
     </form>
+
+
+
   </div>
 </div>
 
