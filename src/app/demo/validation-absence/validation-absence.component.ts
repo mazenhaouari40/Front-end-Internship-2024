@@ -1,28 +1,40 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ServiceService } from 'src/app/Service/service.service';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 
 @Component({
   selector: 'app-validation-absence',
   standalone: true,
-  imports: [SharedModule,HttpClientModule],
+  imports: [SharedModule,HttpClientModule,ReactiveFormsModule,FormsModule],
   templateUrl: './validation-absence.component.html',
   styleUrl: './validation-absence.component.scss',
   providers : [ServiceService,HttpClient]
 })
 export class ValidationAbsenceComponent implements OnInit{
+  absenseform: FormGroup; 
 
   constructor(
-private service : ServiceService
+  private service : ServiceService,
+  private fb: FormBuilder,
+  private route: ActivatedRoute,
+  private toastr : ToastrService
 
-  ){  }
+  ){ 
+    this.absenseform = this.fb.group({
+      status: ['', Validators.required],
+
+    });
+  }
+
   absences: any[] = []; 
 
 ngOnInit(): void {
   const userData = localStorage.getItem('user');
   let user = JSON.parse(userData);
-  
   this.service.getabsencebymanager(user.id).subscribe(
   (response) => {
       this.absences = response;
@@ -30,25 +42,31 @@ ngOnInit(): void {
 }
 
 
-  cards = [
-    {
-      user: 'Mazen Haouari ',
-      debut: '2024-08-01',
-      fin: '2024-08-05',
-      status: 'Demande'
-    },
-    // {
-    //   imageUrl: 'path/to/image2.jpg',
-    //   debut: '2024-08-10',
-    //   fin: '2024-08-20',
-    //   status: 'Approuvé'
-    // },
-    // {
-    //   imageUrl: 'path/to/image3.jpg',
-    //   debut: '2024-09-01',
-    //   fin: '2024-09-03',
-    //   status: 'Refusé'
-    // }
-    // Ajoutez d'autres cartes si nécessaire
-  ];
+
+onSubmit(id_absence : number): void {
+  if (this.absenseform.valid) {
+
+    const userformdata = {
+      status : this.absenseform.get('status')?.value,
+    };
+
+  console.log(id_absence);
+  console.log(userformdata);
+
+
+    this.service.UpdateStatus(id_absence,userformdata).subscribe(
+      (response) =>{
+        this.toastr.success("Status Updated successfully");
+      },
+      (error) => {
+        this.toastr.error(error);
+      }
+    );
+    
+  } else {
+    console.log('Form is invalid');
+  }
+}
+
+
 }

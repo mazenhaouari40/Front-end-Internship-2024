@@ -17,8 +17,8 @@
       <app-card [cardTitle]="card.type" blockClass="pc-component">
         <div class="card-content">
           <p>Type de Maladie: {{ card.type }}</p>
-          <p>Début_d: {{ card.debut_d }}</p>
-          <p>Fin: {{ card.fin_d }}</p>
+          <p>Début_d: {{ card.debut_d | date:'yyyy-MM-dd'}}</p>
+          <p>Fin: {{ card.fin_d | date:'yyyy-MM-dd' }}</p>
           <p>Status: {{ card.status }}</p>
         </div>
       </app-card>

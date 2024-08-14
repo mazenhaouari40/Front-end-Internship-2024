@@ -120,4 +120,12 @@ export class ServiceService {
             headers: this.createAuthorizationHeader()
           });
         }
+
+        UpdateStatus(id :number, body : any){
+          console.log(this.apiUrl+"/absence/Updatestatus/"+id);
+          console.log(body);
+          return this.http.put(this.apiUrl+"/absence/Updatestatus/"+id,body,{
+            headers: this.createAuthorizationHeader()
+          });
+        }
 }

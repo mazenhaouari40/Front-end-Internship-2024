@@ -62,6 +62,8 @@
 
 				<h4>{{absence.user.nom}}</h4>
         
+        <p>ID: {{absence.id_absence}}</p>
+
 				<p>Type: {{absence.type}}</p>
         
 				<p>Début: {{ absence.debut_d | date:'yyyy-MM-dd' }}
@@ -69,18 +71,18 @@
         
 				<p>Fin: {{absence.fin_d | date:'yyyy-MM-dd'}}</p>
         
-				<select id="status"  >
-					<option  value="Accepte">
-						Accepte
-					</option>
-					<option  value="Accepte">
-						Refusé
-					</option>
+        <form [formGroup]="absenseform" (ngSubmit)="onSubmit(absence.id_absence)">
+
+				<select id="status"  formControlName="status">
+					<option  value="Accepte">Accepte	</option>
+					<option  value="Refusé">Refusé</option>
 				</select>
 				
         <div class="button-container">
-          <button type="submit" class="submit-button">Submit</button>
+          <button type="submit" class="submit-button" [disabled]="absenseform.invalid">Submit</button>
         </div>
+      
+      </form>
 
 			</figcaption>
 		</figure>
