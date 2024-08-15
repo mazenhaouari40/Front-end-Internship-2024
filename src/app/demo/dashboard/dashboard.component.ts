@@ -35,10 +35,7 @@ export class DashboardComponent implements OnInit {
   isLoading = false;
   Spinkit = Spinkit;
 
-  ngOnInit(): void {
-
-    this.isLoading = true; 
-
+  miseajour() : void{
     this.service.getUsersAdmin().subscribe(
       (users: any[]) => {
         this.recentUsers = users;
@@ -51,6 +48,13 @@ export class DashboardComponent implements OnInit {
 
       }
     );
+  }
+
+  ngOnInit(): void {
+
+    this.isLoading = true; 
+
+this.miseajour();
 
 
     
@@ -66,8 +70,8 @@ export class DashboardComponent implements OnInit {
     this.service.deleteUser(id)
     .subscribe(
         response => {
-            window.location.reload();
-          });      
+        this.miseajour();  
+                  });      
         
         }
 

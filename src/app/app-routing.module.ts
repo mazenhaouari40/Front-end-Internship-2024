@@ -1,10 +1,8 @@
-// angular import
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-// Project import
 import { AdminComponent } from './theme/layouts/admin-layout/admin-layout.component';
 import { GuestComponent } from './theme/layouts/guest/guest.component';
+import { authGuard } from './Service/auth.guard';
 
 const routes: Routes = [
   {
@@ -13,46 +11,40 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        // redirectTo: '/dashboard/default',
         redirectTo: '/login',
         pathMatch: 'full'
       },
-
-      // {
-      //   path: 'typography',
-      //   loadComponent: () => import('./demo/ui-component/typography/typography.component')
-      // },
-      // {
-      //   path: 'color',
-      //   loadComponent: () => import('./demo/ui-component/ui-color/ui-color.component')
-      // },
-      // {
-      //   path: 'sample-page',
-      //   loadComponent: () => import('./demo/other/sample-page/sample-page.component')
-      // },
       {
         path: 'liste-absence',
         loadComponent: () => import('./demo/liste-absence/liste-absence.component').then(m => m.ListeAbsenceComponent)
+        ,canActivate : [authGuard]
+
       },
       {
         path: 'Dashboard',
         loadComponent: () => import('./demo/dashboard/dashboard.component').then(m => m.DashboardComponent)
+        ,canActivate : [authGuard]
       },
       {
         path: 'ValidationAbsence',
         loadComponent: () => import('./demo/validation-absence/validation-absence.component').then(m => m.ValidationAbsenceComponent)
+        ,canActivate : [authGuard]
       },
       {
         path: 'DemandeAbsence',
         loadComponent: () => import('./demo/demande-absence/demande-absence.component').then(m => m.DemandeAbsenceComponent)
+        ,canActivate : [authGuard]
       },
       {
         path: 'UserForm',
         loadComponent: () => import('./demo/user-form/user-form.component').then(m => m.UserFormComponent)
+        ,canActivate : [authGuard]
       },
       {
         path: 'edit/:id',
         loadComponent: () => import('./demo/user-form/user-form.component').then(m => m.UserFormComponent)
+        ,canActivate : [authGuard]
+
       }
 
     ]

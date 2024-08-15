@@ -9,7 +9,7 @@ import { NavigationItem, NavigationItems } from 'src/app/theme/layouts/admin-lay
 
 // icons
 import { IconModule, IconService } from '@ant-design/icons-angular';
-import { GlobalOutline, NodeExpandOutline } from '@ant-design/icons-angular/icons';
+import { GlobalOutline, HomeOutline, NodeExpandOutline } from '@ant-design/icons-angular/icons';
 
 interface titleType {
   url: any;
@@ -49,7 +49,7 @@ export class BreadcrumbComponent {
     this.navigations = NavigationItems;
     this.type = 'theme1';
     this.setBreadcrumb();
-    this.iconService.addIcon(...[GlobalOutline, NodeExpandOutline]);
+    this.iconService.addIcon(...[HomeOutline, NodeExpandOutline]);
   }
 
   // public method
@@ -59,8 +59,7 @@ export class BreadcrumbComponent {
         const activeLink = router.url;
         const breadcrumbList = this.filterNavigation(this.navigations, activeLink);
         this.navigationList = breadcrumbList;
-        const title = breadcrumbList[breadcrumbList.length - 1]?.title || 'Welcome';
-        // this.titleService.setTitle(title + ' | Mantis  Angular Admin Template');
+        const title = breadcrumbList[breadcrumbList.length - 1]?.title || 'Login';
         this.titleService.setTitle(title );
 
       }

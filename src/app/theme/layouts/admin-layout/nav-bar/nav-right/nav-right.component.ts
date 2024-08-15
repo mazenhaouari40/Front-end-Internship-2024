@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ServiceService } from 'src/app/Service/service.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-nav-right',
@@ -28,7 +29,7 @@ import { ToastrService } from 'ngx-toastr';
 export class NavRightComponent implements OnInit {
 
   constructor(private iconService: IconService,private router: Router,private fb: FormBuilder,private http: HttpClient,private service: ServiceService,
-    private toastr : ToastrService
+    private toastr : ToastrService,private cdr: ChangeDetectorRef
   ) {
     this.iconService.addIcon(
       ...[
@@ -92,6 +93,7 @@ export class NavRightComponent implements OnInit {
     (response) => {
       this.user = response;
       this.user_copy = Object.assign({}, response);
+
     }
   )
   this.service.ImageUser(this.user.id).subscribe(
@@ -134,16 +136,12 @@ export class NavRightComponent implements OnInit {
       
       this.service.EditProfile(formData,this.user.id).subscribe(
         response =>{
-          // console.log('Success! from formdata', response)
-          window.location.reload();
-          // this.router.navigate([this.router.url], { skipLocationChange: true }).then(() => {
-          //   this.router.navigate([this.router.url]);
-          // });
-          // this.toastr.success("User profile updated successfuly");
-
+          this.toastr.success("User profile updated successfully");
+          this.miseajourprofile();
         },
         error => console.error('Error!', error)
       );
+      
       
     } else {
       console.log('Form is invalid');
