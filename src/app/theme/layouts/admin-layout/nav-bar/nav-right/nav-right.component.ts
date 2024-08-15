@@ -11,7 +11,6 @@ import {
   EditOutline,
   UserOutline,
   UnorderedListOutline,} from '@ant-design/icons-angular/icons';
-import { UserEditPopupComponent } from 'src/app/demo/user-edit-popup/user-edit-popup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ServiceService } from 'src/app/Service/service.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -20,7 +19,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-nav-right',
   standalone: true,
-  imports: [SharedModule, RouterModule,UserEditPopupComponent,ReactiveFormsModule,HttpClientModule],
+  imports: [SharedModule, RouterModule,ReactiveFormsModule,HttpClientModule],
   templateUrl: './nav-right.component.html',
   styleUrls: ['./nav-right.component.scss'],
   providers : [[ServiceService],[HttpClient]]
@@ -137,6 +136,9 @@ export class NavRightComponent implements OnInit {
         response =>{
           // console.log('Success! from formdata', response)
           window.location.reload();
+          // this.router.navigate([this.router.url], { skipLocationChange: true }).then(() => {
+          //   this.router.navigate([this.router.url]);
+          // });
           // this.toastr.success("User profile updated successfuly");
 
         },

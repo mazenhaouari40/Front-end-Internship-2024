@@ -17,22 +17,19 @@ const routes: Routes = [
         redirectTo: '/login',
         pathMatch: 'full'
       },
-      {
-        path: 'dashboard/default',
-        loadComponent: () => import('./demo/default/dashboard/dashboard.component').then((c) => c.DefaultComponent)
-      },
-      {
-        path: 'typography',
-        loadComponent: () => import('./demo/ui-component/typography/typography.component')
-      },
-      {
-        path: 'color',
-        loadComponent: () => import('./demo/ui-component/ui-color/ui-color.component')
-      },
-      {
-        path: 'sample-page',
-        loadComponent: () => import('./demo/other/sample-page/sample-page.component')
-      },
+
+      // {
+      //   path: 'typography',
+      //   loadComponent: () => import('./demo/ui-component/typography/typography.component')
+      // },
+      // {
+      //   path: 'color',
+      //   loadComponent: () => import('./demo/ui-component/ui-color/ui-color.component')
+      // },
+      // {
+      //   path: 'sample-page',
+      //   loadComponent: () => import('./demo/other/sample-page/sample-page.component')
+      // },
       {
         path: 'liste-absence',
         loadComponent: () => import('./demo/liste-absence/liste-absence.component').then(m => m.ListeAbsenceComponent)

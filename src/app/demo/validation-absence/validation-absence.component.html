@@ -1,47 +1,6 @@
-<!-- <div class="row">
-    <div class="col-sm-4" *ngFor="let card of cards">
-      <app-card [cardTitle]="card.type" blockClass="pc-component">
-        <div class="card-content">
-          <p>Type de Maladie: {{ card.type }}</p>
-          <p>Début: {{ card.debut }}</p>
-          <p>Fin: {{ card.fin }}</p>
-          <p>Status: {{ card.status }}</p>
-        </div>
-      </app-card>
-    </div>
-  </div>
-   -->
 
-   <!-- <div class="row">
-    <div class="col-sm-4" *ngFor="let card of cards">
-       
-      <app-card [cardTitle]="card.user" blockClass="pc-component">
-        
-        <div class="card-content">
 
-          <div class="line-container">
-            Ligne blanche
-            <div class="white-line"></div>
-          </div>
-          <div class="card-info">
-            <p>Début: {{ card.debut }}</p>
-            <p>Fin: {{ card.fin }}</p>
-            <select id="status" [(ngModel)]="card.status">
-              <option  value="Accepte">
-                  Accepte
-              </option>
-              <option  value="Accepte">
-                Refusé
-            </option>
-            </select>
-
-          </div>
-        </div>
-      </app-card>
-    </div>
-  </div> -->
-  
-
+<app-spinner *ngIf="isLoading" [backgroundColor]="'#1890ff'" [spinner]="Spinkit.skLine"></app-spinner>
 
 <head>
     <meta charset="utf-8">
@@ -62,22 +21,38 @@
 
 				<h4>{{absence.user.nom}}</h4>
         
-        <p>ID: {{absence.id_absence}}</p>
-
-				<p>Type: {{absence.type}}</p>
-        
-				<p>Début: {{ absence.debut_d | date:'yyyy-MM-dd' }}
-				</p>
-        
-				<p>Fin: {{absence.fin_d | date:'yyyy-MM-dd'}}</p>
-        
+				<p>
+					<span class="attribute">ID:</span>
+					<span class="value">{{absence.id_absence}}</span>
+				  </p>
+				  
+				  <p>
+					<span class="attribute">Type:</span>
+					<span class="value">{{absence.type}}</span>
+				  </p>
+				  
+				  <p>
+					<span class="attribute">Début:</span>
+					<span class="value">{{absence.debut_d | date:'yyyy-MM-dd'}}</span>
+				  </p>
+				  
+				  <p>
+					<span class="attribute">Fin:</span>
+					<span class="value">{{absence.fin_d | date:'yyyy-MM-dd'}}</span>
+				  </p>
+				  
+				  
         <form [formGroup]="absenseform" (ngSubmit)="onSubmit(absence.id_absence)">
+			<p>
+			<span class="attribute">Status : </span>
+			<span class="value">
 
 				<select id="status"  formControlName="status">
 					<option  value="Accepte">Accepte	</option>
 					<option  value="Refusé">Refusé</option>
 				</select>
-				
+			</span>
+			</p>
         <div class="button-container">
           <button type="submit" class="submit-button" [disabled]="absenseform.invalid">Submit</button>
         </div>
@@ -88,29 +63,7 @@
 		</figure>
 	</div>
 
-  <!-- <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
-    <figure class="user-card green">
-    <figcaption>
-      <img src="assets/images/Mazen.jpg" alt="Soeng Souy" class="profile">
-      <h4>Mazen Haouari</h4>
-      <p>Type: Maladie</p>
-      <p>Début: 21-09-2024</p>
-      <p>Fin: 30-09-2024</p>
-      <select id="status" >
-        <option  value="Accepte">
-            Accepte
-        </option>
-        <option  value="Accepte">
-          Refusé
-      </option>
-      </select>
-      <div class="button-container">
-        <button type="submit" class="submit-button">Submit</button>
-      </div>
 
-    </figcaption>
-  </figure>
-</div>    -->
 
 
 </div>

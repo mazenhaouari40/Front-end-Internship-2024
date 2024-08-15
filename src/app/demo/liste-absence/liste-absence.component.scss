@@ -1,0 +1,41 @@
+.card-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Première colonne pour les labels, deuxième pour les valeurs */
+    gap: 8px; /* Espace entre les colonnes */
+  }
+  
+  .card-item {
+    display: contents; /* Cela permet d'utiliser la grille pour chaque ligne */
+    margin-bottom: 8px; /* Espacement entre les lignes */
+  }
+  
+  .label {
+    font-weight: bold;
+    color: #555;
+    font-size: 15px;
+    text-align: left; /* Aligne les labels à gauche */
+  }
+  
+  .value {
+    color: #333;
+    font-size: 14px;
+  }
+  
+  .status-demande {
+    color: orange;
+    font-weight: bold; 
+
+  }
+  
+  .status-refuse {
+    color: red;
+
+    font-weight: bold; 
+  }
+  
+  .status-accepte {
+    color: #449257;
+    font-weight: bold; 
+
+  }
+  

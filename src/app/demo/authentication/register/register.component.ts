@@ -63,7 +63,7 @@ export default class RegisterComponent  implements OnInit {
 
    this.service.register(submissionData).subscribe(
      (Response) => {
-      this.toastr.success("User added successfully");
+      this.toastr.success("User Created successfully");
       this.isRegistrationSuccessful = true;
        this.registrationError = false;
      },

@@ -13,13 +13,11 @@ import { Spinkit } from './spinkits';
   encapsulation: ViewEncapsulation.None
 })
 export class SpinnerComponent implements OnDestroy {
-  // public props
   isSpinnerVisible = true;
   Spinkit = Spinkit;
   @Input() backgroundColor = '#1890ff';
   @Input() spinner = Spinkit.skLine;
 
-  // Constructor
   constructor(
     private router: Router,
     @Inject(DOCUMENT) private document: Document

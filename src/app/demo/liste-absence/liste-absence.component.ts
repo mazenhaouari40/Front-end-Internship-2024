@@ -2,6 +2,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/Service/service.service';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
+import { Spinkit } from 'src/app/theme/shared/components/spinner/spinkits' ;
 
 @Component({
   selector: 'app-liste-absence',
@@ -16,42 +17,29 @@ export class ListeAbsenceComponent implements OnInit {
   constructor(private http: HttpClient,private service: ServiceService) { }
   cards: any[] = [];
 
+  isLoading = false;
+  Spinkit = Spinkit;
 
   ngOnInit(): void {
+    this.isLoading = true; 
+
     const userData = localStorage.getItem('user');
     let user = JSON.parse(userData);
-    
     this.service.getAbsence(user.id).subscribe(
       (response) => {
         this.cards = response;
+
+        this.isLoading = false; 
       },
       (error) => {
         console.error('Error fetching data', error);
+        
+        this.isLoading = false;
+
       }
     );
   }
 
-//  cards = [
-//     {
-//       type: 'Grippe',
-//       debut: '2024-08-01',
-//       fin: '2024-08-05',
-//       status: 'Demande'
-//     },
-//     {
-//       type: 'Covid-19',
-//       debut: '2024-08-10',
-//       fin: '2024-08-20',
-//       status: 'Approuvé'
-//     },
-//     {
-//       type: 'Rhume',
-//       debut: '2024-09-01',
-//       fin: '2024-09-03',
-//       status: 'Refusé'
-//     }
-//     // Ajoutez d'autres cartes si nécessaire
-//   ];
 
 
 

@@ -1,33 +1,33 @@
-// /* Styles pour le conteneur de la carte */
-// .card-content {
-//     position: relative;
-//     padding: 15px;
-//   }
+/* Styles pour le conteneur de la carte */
+.card-content {
+    position: relative;
+    padding: 15px;
+  }
   
-//   /* Styles pour la ligne blanche */
-//   .line-container {
-//     margin-bottom: 10px; /* Espacement entre la ligne et l'image */
-//   }
+  /* Styles pour la ligne blanche */
+  .line-container {
+    margin-bottom: 10px; /* Espacement entre la ligne et l'image */
+  }
   
-//   .white-line {
-//     height: 2px; /* Épaisseur de la ligne */
-//     background-color: #ffffff; /* Couleur de la ligne blanche */
-//   }
+  .white-line {
+    height: 2px; /* Épaisseur de la ligne */
+    background-color: #ffffff; /* Couleur de la ligne blanche */
+  }
   
-//   /* Styles pour le conteneur de l'image */
-//   .image-container {
-//     display: flex;
-//     justify-content: center;
-//     margin-bottom: 10px; /* Espacement entre l'image et les infos */
-//   }
+  /* Styles pour le conteneur de l'image */
+  .image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px; /* Espacement entre l'image et les infos */
+  }
   
-//   /* Styles pour l'image circulaire et petite */
-//   .card-image {
-//     width: 50px; /* Taille de l'image */
-//     height: 50px; /* Taille de l'image */
-//     border-radius: 50%; /* Rend l'image circulaire */
-//     object-fit: cover; /* Maintient les proportions de l'image */
-//   }
+  /* Styles pour l'image circulaire et petite */
+  .card-image {
+    width: 50px; /* Taille de l'image */
+    height: 50px; /* Taille de l'image */
+    border-radius: 50%; /* Rend l'image circulaire */
+    object-fit: cover; /* Maintient les proportions de l'image */
+  }
   
 
 body {
@@ -108,13 +108,30 @@ body {
     font-size: 14px;
   }
   
+
   figure.user-card p {
-    margin: 0;
-    padding: 0 0 15px 0;
+    margin: 5px 0 0 0; /* Marge en haut de 5px, autres marges à 0 */
+    padding: 5px 0 10px 0; 
     color: #8796af;
     line-height: 150%;
     font-size: 0.85rem;
+    text-align: left; 
+    padding-left: 50px; 
   }
+  
+  
+
+figure.user-card .attribute {
+  font-weight: bold;
+  margin-right: 10px; /* Espace entre l'attribut et la valeur */
+  padding-left: 0px;
+}
+
+figure.user-card .value {
+  color: #333; /* Couleur de la valeur, changez si nécessaire */
+}
+
+
   
   figure.user-card ul.contacts {
     margin: 0;
@@ -160,3 +177,4 @@ body {
   .submit-button:hover {
     background-color: darkgreen;
   }
+  

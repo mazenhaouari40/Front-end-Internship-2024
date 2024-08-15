@@ -5,11 +5,13 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ServiceService } from 'src/app/Service/service.service';
+import { Spinkit } from 'src/app/theme/shared/components/spinner/spinkits' ;
+import { SharedModule } from 'src/app/theme/shared/shared.module';
 
 @Component({
   selector: 'app-user-form',
   standalone: true,
-  imports: [NgFor,HttpClientModule,FormsModule,NgIf,ReactiveFormsModule],
+  imports: [NgFor,HttpClientModule,FormsModule,NgIf,ReactiveFormsModule,SharedModule],
   templateUrl: './user-form.component.html',
   styleUrl: './user-form.component.scss',
   providers : [ServiceService,HttpClient]
@@ -23,7 +25,6 @@ export class UserFormComponent implements OnInit {
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private toastr : ToastrService
-
   ){
     this.userForm = this.fb.group({
       nom: ['', Validators.required],
@@ -35,34 +36,30 @@ export class UserFormComponent implements OnInit {
       manager: ['']
     });
 
-
     this.userForm.get('role')?.valueChanges.subscribe(value => {
       this.selectedRole = value;
       this.updateManagerField();
     });
-
   }
 
 updateManagerField(): void {
   const managerControl = this.userForm.get('manager');
-
   if (this.selectedRole === 'collaborateur') {
     managerControl?.setValidators(Validators.required);
   } else {
     managerControl?.clearValidators();
-    managerControl?.setValue(null); // Reset the manager field to null
+    managerControl?.setValue(null); 
   }
-
   managerControl?.updateValueAndValidity();
 }
-
-
 
   managerList: any [];
   userdata: any = []; 
   user: any ;
-
   selectedRole: string = ''; 
+
+  isLoading = false;
+  Spinkit = Spinkit;
 
   ngOnInit() {
 
@@ -75,12 +72,19 @@ updateManagerField(): void {
 
     let id = this.route.snapshot.params['id'];
  
+    this.isLoading = true; 
+
+
     this.service.getUser(id).subscribe(
     (user: any) => {
       this.userdata = user;
+      this.isLoading = false; 
+
     },
     error => {
       console.error('Error fetching users:', error);
+      this.isLoading = false; 
+
     });
     
   }
@@ -93,7 +97,7 @@ updateManagerField(): void {
       const userformdata = {
         id : id_route,
         nom: this.userForm.get('nom')?.value,
-        // email: this.userForm.get('email')?.value,
+        email: this.userForm.get('email')?.value,
         num_tel: this.userForm.get('num_tel')?.value,
         password: this.userForm.get('password')?.value,
         role : this.userForm.get('role')?.value,
@@ -115,8 +119,8 @@ updateManagerField(): void {
         },
         (error) => {
           
-          console.error('Error!', error);
-          this.toastr.error(error);
+          console.error('Error!', error.message);
+          this.toastr.error(error.error.message);
         }
       );
       

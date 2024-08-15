@@ -4,7 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ServiceService } from 'src/app/Service/service.service';
-import tableData from 'src/fake-data/default-data.json';
+import { Spinkit } from 'src/app/theme/shared/components/spinner/spinkits' ;
+import { SharedModule } from 'src/app/theme/shared/shared.module';
 
 interface User {
   id: number;
@@ -16,7 +17,7 @@ interface User {
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [HttpClientModule,CommonModule,RouterModule],
+  imports: [HttpClientModule,CommonModule,RouterModule,SharedModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
   providers : [ServiceService,HttpClient]
@@ -30,14 +31,24 @@ export class DashboardComponent implements OnInit {
     private toastr : ToastrService
   ){}
 
+
+  isLoading = false;
+  Spinkit = Spinkit;
+
   ngOnInit(): void {
+
+    this.isLoading = true; 
+
     this.service.getUsersAdmin().subscribe(
       (users: any[]) => {
         this.recentUsers = users;
-        console.log(this.recentUsers);
+        this.isLoading = false; 
+
       },
       error => {
         console.error('Error fetching users:', error);
+        this.isLoading = false;
+
       }
     );
 

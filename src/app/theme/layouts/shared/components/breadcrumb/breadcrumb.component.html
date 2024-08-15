@@ -5,21 +5,18 @@
         <div class="row align-items-center">
           <div class="col-md-12">
             <ul class="breadcrumb">
-              <!-- <li class="breadcrumb-item">
+              <li class="breadcrumb-item">
+
                 @if (type === 'theme2') {
                   <a [routerLink]="['/dashboard/analytics/']" title="Home" class="home"><i class="feather icon-home"></i></a>
                 }
                 @if (type === 'theme1') {
                   <a [routerLink]="['/dashboard/analytics/']" class="home">Home</a>
                 }
-              </li> -->
-
-              <li class="breadcrumb-item">
-                  <a [routerLink]="['/dashboard']" title="Home" class="home"><i class="feather icon-home"></i></a>
-                  <a [routerLink]="['/dashboard']" class="home">Home</a>
               </li>
 
-              <!-- @for (breadcrumb of navigationList; track breadcrumb) {
+              
+              @for (breadcrumb of navigationList; track breadcrumb) {
                 @if (breadcrumb.url !== false) {
                   <li class="breadcrumb-item">
                     <a [routerLink]="breadcrumb.url" class="f-14 f-w-600">{{ breadcrumb.title }}</a>
@@ -30,22 +27,7 @@
                     <a href="javascript:">{{ breadcrumb.title }}</a>
                   </li>
                 }
-              } -->
-
-              <!-- @for (breadcrumb of navigationList; track breadcrumb) { -->
-                <!-- @if (breadcrumb.url !== false) {
-                  <li class="breadcrumb-item">
-                    <a [routerLink]="breadcrumb.url" class="f-14 f-w-600">{{ breadcrumb.title }}</a>
-                  </li>
-                } -->
-                <!-- @if (breadcrumb.url === false && breadcrumb.type !== 'group') { -->
-                  <li class="breadcrumb-item">
-                    <a href="javascript:">{{ breadcrumb.title }}</a>
-                  </li>
-                <!-- } -->
-              <!-- } -->
-
-
+              }
             </ul>
           </div>
           <div class="col-md-12">

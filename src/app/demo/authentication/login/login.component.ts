@@ -60,10 +60,7 @@ export default class LoginComponent implements OnInit {
               this.router.navigateByUrl("/liste-absence");
 
             }
-
         }
-
-
       },  
       (error) => {
         console.error(error);

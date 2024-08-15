@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 export class ServiceService {
 
   // private apiUrl = environment.apiurl; 
-  // private apiUrl = 'http://localhost:8081' ; 
-  private apiUrl = 'https://backend-jenkins.onrender.com' ; 
+  private apiUrl = 'http://localhost:8081' ; 
+  // private apiUrl = 'https://backend-jenkins.onrender.com' ; 
 
 
   constructor(private http: HttpClient) { }

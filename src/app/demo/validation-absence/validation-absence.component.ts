@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ServiceService } from 'src/app/Service/service.service';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
+import { Spinkit } from 'src/app/theme/shared/components/spinner/spinkits' ;
 
 @Component({
   selector: 'app-validation-absence',
@@ -16,28 +17,32 @@ import { SharedModule } from 'src/app/theme/shared/shared.module';
 })
 export class ValidationAbsenceComponent implements OnInit{
   absenseform: FormGroup; 
-
   constructor(
   private service : ServiceService,
   private fb: FormBuilder,
   private route: ActivatedRoute,
   private toastr : ToastrService
-
   ){ 
     this.absenseform = this.fb.group({
       status: ['', Validators.required],
-
     });
   }
 
   absences: any[] = []; 
 
+  isLoading = false;
+  Spinkit = Spinkit;
 ngOnInit(): void {
   const userData = localStorage.getItem('user');
   let user = JSON.parse(userData);
+
+  this.isLoading = true; 
+
   this.service.getabsencebymanager(user.id).subscribe(
   (response) => {
       this.absences = response;
+      this.isLoading = false; 
+
   });
 }
 

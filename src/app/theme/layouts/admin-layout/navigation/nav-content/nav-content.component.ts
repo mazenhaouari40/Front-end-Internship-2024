@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { NavigationItem, NavigationItems } from '../navigation';
 import { environment } from 'src/environments/environment';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
-import { NavCollapseComponent } from './nav-collapse/nav-collapse.component';
+// import { NavCollapseComponent } from './nav-collapse/nav-collapse.component';
 import { NavGroupComponent } from './nav-group/nav-group.component';
 import { NavItemComponent } from './nav-item/nav-item.component';
 
@@ -28,7 +28,8 @@ import {
 @Component({
   selector: 'app-nav-content',
   standalone: true,
-  imports: [SharedModule, CommonModule, RouterModule, NavCollapseComponent, NavGroupComponent, NavItemComponent],
+  imports: [SharedModule, CommonModule, RouterModule, NavGroupComponent, NavItemComponent,],
+  // , NavCollapseComponent
   templateUrl: './nav-content.component.html',
   styleUrls: ['./nav-content.component.scss']
 })
