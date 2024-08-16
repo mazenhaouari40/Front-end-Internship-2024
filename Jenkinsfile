@@ -15,32 +15,32 @@ pipeline {
             }
         }
 
-        stage('Setup Git Configuration') {
-            steps {
-                bat '''
-                    git config --global user.email "mazenhaouari97@gmail.com"
-                    git config --global user.name "mazenhaouari40"
-                '''
-            }
-        }
+        // stage('Setup Git Configuration') {
+        //     steps {
+        //         bat '''
+        //             git config --global user.email "mazenhaouari97@gmail.com"
+        //             git config --global user.name "mazenhaouari40"
+        //         '''
+        //     }
+        // }
 
-        stage('Checkout Branch') {
-            steps {
-                script {
-                    bat 'git checkout master'  
-                }
-            }
-        }
+        // stage('Checkout Branch') {
+        //     steps {
+        //         script {
+        //             bat 'git checkout master'  
+        //         }
+        //     }
+        // }
 
-        stage('Add dist to GitHub repository') {
-            steps {
-                bat '''
-                    git add -f .\\dist\\
-                    git commit -m "Add dist folder to repository"
-                    git push
-                '''
-            }
-        }
+        // stage('Add dist to GitHub repository') {
+        //     steps {
+        //         bat '''
+        //             git add -f .\\dist\\
+        //             git commit -m "Add dist folder to repository"
+        //             git push
+        //         '''
+        //     }
+        // }
 
         stage('Deploy to Render') {
             steps {
