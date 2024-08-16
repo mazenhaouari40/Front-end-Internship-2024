@@ -9,11 +9,11 @@ pipeline {
             }
         }
 
-        // stage('Build') {
-        //     steps {
-        //         bat 'npm run build --prod'
-        //     }
-        // }
+        stage('Build') {
+            steps {
+                bat 'npm run build --prod'
+            }
+        }
 
         // stage('Setup Git Configuration') {
         //     steps {
@@ -53,11 +53,7 @@ pipeline {
                     bat """
                         curl "${renderDeployHook}"
                     """
-            //     bat """
-            //     curl -X POST ^
-            //     -F "publishDir=@dist/" ^
-            //     "${renderDeployHook}"
-            // """
+
                 
                 }
 
