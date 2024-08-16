@@ -15,6 +15,23 @@ pipeline {
             }
         }
 
+        stage('Setup Git Configuration') {
+            steps {
+                bat '''
+                    git config --global user.email "mazenhaouari97@gmail.com"
+                    git config --global user.name "mazenhaouari40"
+                '''
+            }
+        }
+
+        stage('Checkout Branch') {
+            steps {
+                script {
+                    bat 'git checkout master'  
+                }
+            }
+        }
+
         stage('Add dist to GitHub repository') {
             steps {
                 bat '''
@@ -41,6 +58,7 @@ pipeline {
 
     }
 }
+
 
 
 
