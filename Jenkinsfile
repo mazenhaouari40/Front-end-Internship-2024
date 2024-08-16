@@ -24,13 +24,13 @@ pipeline {
             }
         }
 
-        stage('Checkout Branch') {
-            steps {
-                script {
-                    bat 'git checkout master'  
-                }
-            }
-        }
+        // stage('Checkout Branch') {
+        //     steps {
+        //         script {
+        //             bat 'git checkout master'  
+        //         }
+        //     }
+        // }
 
         stage('Add dist to GitHub repository') {
             steps {
