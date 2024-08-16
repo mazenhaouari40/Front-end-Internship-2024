@@ -9,52 +9,40 @@ pipeline {
             }
         }
 
-        // stage('Build') {
-        //     steps {
-        //         bat 'npm run build --prod'
-        //     }
-        // }
+        stage('Build') {
+            steps {
+                bat 'npm run build --prod'
+            }
+        }
 
-        // stage('Setup Git Configuration') {
-        //     steps {
-        //         bat '''
-        //             git config --global user.email "mazenhaouari97@gmail.com"
-        //             git config --global user.name "mazenhaouari40"
-        //         '''
-        //     }
-        // }
+        stage('Setup Git Configuration') {
+            steps {
+                bat '''
+                    git config --global user.email "mazenhaouari97@gmail.com"
+                    git config --global user.name "mazenhaouari40"
+                '''
+            }
+        }
 
-        // stage('Checkout Branch') {
-        //     steps {
-        //         script {
-        //             bat 'git checkout master'  
-        //         }
-        //     }
-        // }
+        stage('Checkout Branch') {
+            steps {
+                script {
+                    bat 'git checkout master'  
+                }
+            }
+        }
 
-        // stage('Add dist to GitHub repository') {
-        //     steps {
-        //         bat '''
-        //             git add -f .\\dist\\
-        //             git commit -m "Add dist folder to repository from jenkins"
-        //             git push
-        //         '''
-        //     }
-        // }
+        stage('Add dist to GitHub repository') {
+            steps {
+                bat '''
+                    git add -f .\\dist\\
+                    git commit -m "Add dist folder to repository from jenkins"
+                    git push origin master
+                '''
+            }
+        }
 
-        // stage('Deploy to Render') {
-        //     steps {
-        //         script {
-        //             def buildDir = 'dist'
-        //             def renderDeployHook = 'https://api.render.com/deploy/srv-cqp3h788fa8c73c60l90?key=Dv23QVVpjko'
-        //             bat """
-        //                 curl -X POST ^
-        //                 -F "publishDir=@${buildDir}/" ^
-        //                 "${renderDeployHook}"
-        //             """
-        //         }
-        //     }
-        // }
+
 
 
 
