@@ -2,13 +2,48 @@ pipeline {
     agent any
     tools { nodejs 'node' }
     stages {
-      
+
         stage('Install Dependencies') {
             steps {
                 bat 'npm install --legacy-peer-deps'
             }
         }
-      
+
+        stage('Build') {
+            steps {
+                bat 'npm run build --prod'
+            }
+        }
+
+        stage('Add dist to GitHub repository') {
+            steps {
+                bat '''
+                    git add -f .\\dist\\
+                    git commit -m "Add dist folder to repository"
+                    git push
+                '''
+            }
+        }
+
+        stage('Deploy to Render') {
+            steps {
+                script {
+                    def buildDir = 'dist'
+                    def renderDeployHook = 'https://api.render.com/deploy/srv-cqp3h788fa8c73c60l90?key=Dv23QVVpjko'
+                    bat """
+                        curl -X POST ^
+                        -F "publishDir=@${buildDir}/" ^
+                        "${renderDeployHook}"
+                    """
+                }
+            }
+        }
+
+    }
+}
+
+
+
      // stage('Testing Stage') {
      //        steps {
      //            // bat 'npm run ng test --no-watch --code-coverage'
@@ -25,29 +60,3 @@ pipeline {
         //       bat 'npx kill-port 4200'
         //     }
         // }
-
-
-       stage('Build') {
-            steps {
-                bat 'npm run build --prod'
-            }
-        }
-
-        stage('Deploy to Render') {
-            steps {
-                script {
-                    def buildDir = 'dist'
-                    def renderDeployHook = 'https://api.render.com/deploy/srv-cqp3h788fa8c73c60l90?key=Dv23QVVpjko'  
-                    bat """
-                        curl -X POST ^
-                        -F "publishDir=@${buildDir}/" ^
-                        "${renderDeployHook}"
-                    """
-                }
-            }
-        }
-  
-
-      
-    }
-}
