@@ -42,20 +42,36 @@ pipeline {
         //     }
         // }
 
-        stage('Deploy to Render') {
-            steps {
-                script {
-                    def buildDir = 'dist'
-                    def renderDeployHook = 'https://api.render.com/deploy/srv-cqp3h788fa8c73c60l90?key=Dv23QVVpjko'
-                    bat """
-                        curl -X POST ^
-                        -F "publishDir=@${buildDir}/" ^
-                        "${renderDeployHook}"
-                    """
-                }
-            }
-        }
+        // stage('Deploy to Render') {
+        //     steps {
+        //         script {
+        //             def buildDir = 'dist'
+        //             def renderDeployHook = 'https://api.render.com/deploy/srv-cqp3h788fa8c73c60l90?key=Dv23QVVpjko'
+        //             bat """
+        //                 curl -X POST ^
+        //                 -F "publishDir=@${buildDir}/" ^
+        //                 "${renderDeployHook}"
+        //             """
+        //         }
+        //     }
+        // }
 
+
+stage('Deploy to Render') {
+    steps {
+        script {
+            def buildDir = 'dist'
+            def renderDeployHook = 'https://api.render.com/deploy/srv-cqp3h788fa8c73c60l90?key=Dv23QVVpjko'
+            bat """
+                curl -v -X POST ^
+                -F "publishDir=@${buildDir}/" ^
+                "${renderDeployHook}"
+            """
+        }
+    }
+}
+
+      
     }
 }
 
