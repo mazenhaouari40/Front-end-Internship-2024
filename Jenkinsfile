@@ -63,9 +63,7 @@ pipeline {
           script {
                     def renderDeployHook = 'https://api.render.com/deploy/srv-cqp3h788fa8c73c60l90?key=xP1Fg6Z4Cl0'
                     bat """
-                        curl -X POST ^
-                        -F "publishDir=@dist/" ^
-                        "${renderDeployHook}"
+                        curl "${renderDeployHook}"
                     """
                 }
 
