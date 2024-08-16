@@ -51,7 +51,7 @@ body {
   }
   
   figure.user-card.green {
-    border-top: 3px solid #3ecfac;
+    border-top: 3px solid #2c3835;
   }
   
   figure.user-card.blue {
@@ -162,19 +162,61 @@ figure.user-card .value {
     list-style-type: none;
   }
 
+
+
+  // .submit-button {
+  //   background-color: green;
+  //   color: white;
+  //   border: none;
+  //   padding: 7px 40px;
+  //   margin-top: 25px;
+  //   font-size: 16px;
+  //   cursor: pointer;
+  //   border-radius: 5px;
+  //   transition: background-color 0.3s;
+  // }
+  
+  // .submit-button:hover {
+  //   background-color: darkgreen;
+  // }
+  
+
+  .button-container {
+    display: flex;
+    // flex-direction: column; /* Stack buttons vertically */
+    gap: 15px; /* Add some spacing between buttons */
+    margin-top: 20px;
+    margin-left: 15px ;
+  }
+  
   .submit-button {
-    background-color: green;
-    color: white;
     border: none;
-    padding: 7px 40px;
-    margin-top: 25px;
+    padding: 7px 20px;
+    margin-top: 0; /* Remove top margin */
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s;
   }
   
-  .submit-button:hover {
+  /* Accepte button (Green) */
+  .accepte-button {
+    background-color: green;
+    color: white;
+  }
+  
+  .accepte-button:hover {
     background-color: darkgreen;
   }
+  
+  /* Refusé button (Red) */
+  .refuse-button {
+    background-color: red;
+    color: white;
+  }
+  
+  .refuse-button:hover {
+    background-color: darkred;
+  }
+  
   

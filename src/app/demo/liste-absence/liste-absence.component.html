@@ -1,15 +1,14 @@
 
 <app-spinner *ngIf="isLoading" [backgroundColor]="'#1890ff'" [spinner]="Spinkit.skLine"></app-spinner>
 
+<div class="add-absence-button">
+  <button class="btn btn-primary" [routerLink]="'/DemandeAbsence'">Demande absence</button>
+</div>
 
   <div class="row">
     <div class="col-sm-4" *ngFor="let card of cards">
       <app-card [cardTitle]="card.type" blockClass="pc-component">
         <div class="card-content">
-          <div class="card-item">
-            <span class="label">Id_absence : </span>
-            <span class="value">{{ card.id_absence}}</span>
-          </div>
           <div class="card-item">
             <span class="label">Début:</span>
             <span class="value">{{ card.debut_d | date:'yyyy-MM-dd'}}</span>

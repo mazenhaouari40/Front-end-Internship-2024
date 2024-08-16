@@ -19,13 +19,11 @@ import { NavItemComponent } from '../nav-item/nav-item.component';
 export class NavGroupComponent implements OnInit {
   // public props
 
-  // All Version in Group Name
   @Input() item!: NavigationItem;
 
-  // Constructor
   constructor(private location: Location) {}
   role : string;
-  // Life cycle events
+
   ngOnInit() {
     const userData = localStorage.getItem('user');
     const user = JSON.parse(userData);

@@ -16,15 +16,14 @@
     	<figure class="user-card green">
 			<figcaption>
 
-				<!-- <img src="assets/images/Mazen.jpg" alt="Soeng Souy" class="profile"> -->
 				<img [src]="'data:image/png;base64,' + absence.user.imageencode_64bits" alt="Soeng Souy" class="profile">
 
 				<h4>{{absence.user.nom}}</h4>
         
-				<p>
+				<!-- <p>
 					<span class="attribute">ID:</span>
 					<span class="value">{{absence.id_absence}}</span>
-				  </p>
+				  </p> -->
 				  
 				  <p>
 					<span class="attribute">Type:</span>
@@ -43,7 +42,7 @@
 				  
 				  
         <form [formGroup]="absenseform" (ngSubmit)="onSubmit(absence.id_absence)">
-			<p>
+			<!-- <p>
 			<span class="attribute">Status : </span>
 			<span class="value">
 
@@ -52,13 +51,22 @@
 					<option  value="Refusé">Refusé</option>
 				</select>
 			</span>
-			</p>
-        <div class="button-container">
-          <button type="submit" class="submit-button" [disabled]="absenseform.invalid">Submit</button>
-        </div>
-      
-      </form>
+			</p> -->
+			<div class="button-container">
+				<!-- Accepte Button -->
+				<button type="button" class="submit-button accepte-button" (click)="submitWithStatus('Accepte', absence.id_absence)">
+				  Accepte
+				</button>
+			  
+				<!-- Refusé Button -->
+				<button type="button" class="submit-button refuse-button" (click)="submitWithStatus('Refusé', absence.id_absence)">
+				  Refusé
+				</button>
+			  </div>
+			  
 
+			</form>
+			
 			</figcaption>
 		</figure>
 	</div>

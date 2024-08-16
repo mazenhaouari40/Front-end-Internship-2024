@@ -59,14 +59,14 @@ export const NavigationItems: NavigationItem[] = [
         classes: 'nav-item',
         icon: 'unordered-list'
       },
-      {
-        id: '15',
-        title: 'Demande-Absence',
-        type: 'item',
-        url: '/DemandeAbsence',
-        classes: 'nav-item',
-        icon: 'edit'
-      },
+      // {
+      //   id: '15',
+      //   title: 'Demande-Absence',
+      //   type: 'item',
+      //   url: '/DemandeAbsence',
+      //   classes: 'nav-item',
+      //   icon: 'edit'
+      // },
     ]
   },
   {

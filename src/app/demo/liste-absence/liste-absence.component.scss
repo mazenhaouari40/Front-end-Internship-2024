@@ -38,4 +38,20 @@
     font-weight: bold; 
 
   }
+
+  .add-absence-button {
+    margin-bottom: 20px;
+  }
+  
+  .add-absence-button .btn {
+    background-color: #1890ff;
+    border-color: #1890ff;
+    color: white;
+  }
+  
+  .add-absence-button .btn:hover {
+    background-color: #147bc1;
+    border-color: #147bc1;
+  }
+  
   

@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/Service/service.service';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { Spinkit } from 'src/app/theme/shared/components/spinner/spinkits' ;
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-liste-absence',
   standalone: true,
-  imports: [[SharedModule],[HttpClientModule]],
+  imports: [[SharedModule],[HttpClientModule],[RouterModule]],
   templateUrl: './liste-absence.component.html',
   styleUrl: './liste-absence.component.scss',
   providers : [[ServiceService],[HttpClient]]

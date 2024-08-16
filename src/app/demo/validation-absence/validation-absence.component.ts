@@ -47,15 +47,26 @@ ngOnInit(): void {
 }
 
 
+submitWithStatus(status: string, id_absence: number) {
+  // Set the status value in the form
+  this.absenseform.patchValue({ status });
+
+  // Submit the form with the updated status
+  this.onSubmit(id_absence);
+}
+
 
 onSubmit(id_absence : number): void {
+  const formData = this.absenseform.value;
+  console.log(`Submitting absence with ID: ${id_absence} and status: ${formData.status}`);
+
   if (this.absenseform.valid) {
 
     const userformdata = {
       status : this.absenseform.get('status')?.value,
     };
 
-  console.log(id_absence);
+  // console.log(id_absence);
   console.log(userformdata);
 
 
