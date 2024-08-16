@@ -9,11 +9,11 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                bat 'npm run build --prod'
-            }
-        }
+        // stage('Build') {
+        //     steps {
+        //         bat 'npm run build --prod'
+        //     }
+        // }
 
         // stage('Setup Git Configuration') {
         //     steps {
@@ -36,7 +36,7 @@ pipeline {
         //     steps {
         //         bat '''
         //             git add -f .\\dist\\
-        //             git commit -m "Add dist folder to repository"
+        //             git commit -m "Add dist folder to repository from jenkins"
         //             git push
         //         '''
         //     }
