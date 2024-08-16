@@ -9,11 +9,11 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                bat 'npm run build --prod'
-            }
-        }
+        // stage('Build') {
+        //     steps {
+        //         bat 'npm run build --prod'
+        //     }
+        // }
 
         // stage('Setup Git Configuration') {
         //     steps {
