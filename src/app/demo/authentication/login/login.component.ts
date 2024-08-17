@@ -63,7 +63,7 @@ export default class LoginComponent implements OnInit {
       },  
       (error) => {
         // console.error(error);
-        this.toastr.error("Votre email et mot de passe sont incorrects");
+        this.toastr.error(error.error.message);
         // this.registrationError = true;
       }
     );

@@ -65,12 +65,20 @@ this.miseajour();
     let user = JSON.parse(userData);
     if (user.id == id){
       this.toastr.error("You can't delete the current user.");
-    }else{
-    this.service.deleteUser(id)
+    }
+    else{
+    
+      this.service.deleteUser(id)
     .subscribe(
         response => {
-        this.miseajour();  
-                  });      
+          this.toastr.success("user deleted successfully");
+          setTimeout(() => {
+            this.miseajour();
+          }, 3000); 
+          
+         
+      
+      });      
         }
       }
 

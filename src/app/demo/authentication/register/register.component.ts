@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [[RouterModule],[ReactiveFormsModule],[HttpClientModule],[NgIf]],
+  imports: [[RouterModule],[ReactiveFormsModule],[HttpClientModule],[NgIf],[RouterModule]],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
   providers: [[ServiceService],[HttpClient]]
@@ -26,8 +26,8 @@ export default class RegisterComponent  implements OnInit {
  constructor(
    private service: ServiceService,
    private fb:FormBuilder,
-   private toastr : ToastrService
-
+   private toastr : ToastrService,
+   private router: Router,
  ){}
 
  ngOnInit(): void {
@@ -64,6 +64,11 @@ export default class RegisterComponent  implements OnInit {
    this.service.register(submissionData).subscribe(
      (Response) => {
       this.toastr.success("User Created successfully");
+      
+      setTimeout(() => {
+          this.router.navigateByUrl("/login");
+      }, 1000); 
+
       this.isRegistrationSuccessful = true;
        this.registrationError = false;
      },
