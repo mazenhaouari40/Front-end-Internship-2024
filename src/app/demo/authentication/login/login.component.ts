@@ -44,28 +44,27 @@ export default class LoginComponent implements OnInit {
     console.log(this.loginForm.value);
     this.service.login(this.loginForm.value).subscribe(
       (Response) => {
-        console.log(Response);
-        this.registrationError = false;
+        // console.log(Response);
+        // this.registrationError = false;
         localStorage.setItem('token',Response.token);
         localStorage.setItem('user', JSON.stringify(Response.user));
-
-        if (Response.user.role === "admin"){
-        this.router.navigateByUrl("/Dashboard");
-        }
-        else{
-            if (Response.user.role === "manager"){
+        this.toastr.success("User logged in successfully");
+        setTimeout(() => {
+          if (Response.user.role === "admin") {
+            this.router.navigateByUrl("/Dashboard");
+          } else {
+            if (Response.user.role === "manager") {
               this.router.navigateByUrl("/ValidationAbsence");
-
-            }else{
+            } else {
               this.router.navigateByUrl("/liste-absence");
-
             }
-        }
+          }
+        }, 3000); 
       },  
       (error) => {
-        console.error(error);
+        // console.error(error);
         this.toastr.error("Votre email et mot de passe sont incorrects");
-        this.registrationError = true;
+        // this.registrationError = true;
       }
     );
   }

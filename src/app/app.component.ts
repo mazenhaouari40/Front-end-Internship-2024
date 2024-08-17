@@ -1,12 +1,12 @@
-// angular import
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  // public props
-  title = 'mantis-free-version';
+  title = 'Hr Maps';
+
+
 }

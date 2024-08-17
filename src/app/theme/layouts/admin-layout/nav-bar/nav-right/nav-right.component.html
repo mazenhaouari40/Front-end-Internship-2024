@@ -1,7 +1,7 @@
 
 <ul class="list-unstyled">
 
-  <li class="dropdown pc-h-item" ngbDropdown>
+  <!-- <li class="dropdown pc-h-item" ngbDropdown>
     <a class="pc-head-link dropdown-toggle arrow-none me-0 bg-gray-200" data-bs-toggle="dropdown" ngbDropdownToggle>
       <i antIcon type="bell" theme="outline"></i>
       <span class="badge bg-primary pc-h-badge">3</span>
@@ -42,7 +42,7 @@
         <a class="link-primary">View all</a>
       </div>
     </div>
-  </li>
+  </li> -->
   <li class="dropdown pc-h-item header-user-profile" ngbDropdown>
     <a class="pc-head-link dropdown-toggle arrow-none me-0" ngbDropdownToggle>
       
@@ -112,7 +112,7 @@
 
 
       <div class="form-group">
-        <label for="nom">Nom:</label>
+        <label for="nom">Nom *:</label>
         <input id="nom"  type="text" formControlName="nom" [(ngModel)]="user_copy.nom" />
         <!-- <div *ngIf="userForm.get('nom')?.invalid ">
           <small class="error">Nom is required</small>
@@ -120,7 +120,7 @@
       </div>
 
       <div class="form-group">
-        <label for="email">Email:</label>
+        <label for="email">Email *:</label>
         <input id="email"  type="email" formControlName="email" [(ngModel)]="user_copy.email" readonly  />
         <!-- <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
           <small class="error" *ngIf="userForm.get('email')?.hasError('required')">Email is required</small>
@@ -129,7 +129,7 @@
       </div>
 
       <div class="form-group">
-        <label for="num_tel">Num Tel:</label>
+        <label for="num_tel">Num Tel *:</label>
         <input id="num_tel" type="text" formControlName="num_tel" [(ngModel)]="user_copy.num_tel"/>
         <!-- <div *ngIf="userForm.get('num_tel')?.invalid && userForm.get('num_tel')?.touched">
           <small class="error" *ngIf="userForm.get('num_tel')?.hasError('required')">Phone number is required</small>
@@ -140,7 +140,7 @@
 
 
       <div class="form-group">
-        <label for="num_tel">Password:</label>
+        <label for="num_tel">Password *:</label>
         <input id="password"  type="password" formControlName="password"/>
         <!-- <div *ngIf="userForm.get('num_tel')?.invalid && userForm.get('num_tel')?.touched">
           <small class="error" *ngIf="userForm.get('num_tel')?.hasError('required')">Phone number is required</small> 
@@ -150,7 +150,7 @@
 
 
       <div class="form-group">
-        <label for="num_tel">Confirm Password:</label>
+        <label for="num_tel">Confirm Password *:</label>
         <input id="ConfirmPassword"  type="password" formControlName="confirmpassword" />
         <!-- <div *ngIf="userForm.get('num_tel')?.invalid && userForm.get('num_tel')?.touched">
           <small class="error" *ngIf="userForm.get('num_tel')?.hasError('required')">Phone number is required</small>
@@ -160,7 +160,7 @@
 
 
       <div class="form-group">
-        <label for="image">Image:</label>
+        <label for="image">Image *:</label>
         <input id="image" type="file" (change)="onFileChange($event)" />
       </div>
 

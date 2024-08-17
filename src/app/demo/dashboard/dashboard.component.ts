@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private service : ServiceService,
-    private toastr : ToastrService
+    private toastr : ToastrService,
   ){}
 
 
@@ -40,14 +40,13 @@ export class DashboardComponent implements OnInit {
       (users: any[]) => {
         this.recentUsers = users;
         this.isLoading = false; 
-
       },
       error => {
         console.error('Error fetching users:', error);
         this.isLoading = false;
-
       }
     );
+
   }
 
   ngOnInit(): void {
@@ -72,9 +71,7 @@ this.miseajour();
         response => {
         this.miseajour();  
                   });      
-        
         }
-
       }
 
 }

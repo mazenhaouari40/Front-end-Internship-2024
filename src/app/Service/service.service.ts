@@ -1,14 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-// import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
-
-  // private apiUrl = environment.apiurl; 
   // private apiUrl = 'http://localhost:8081' ; 
   private apiUrl = 'https://backend-jenkins.onrender.com' ; 
 
@@ -65,7 +62,7 @@ export class ServiceService {
 
   isLoggedIn(): boolean {
     const token = localStorage.getItem("token");
-    return !!token; // Returns true if token exists, otherwise false
+    return !!token; 
   }
 
   getAbsence(id : number): Observable<any> {

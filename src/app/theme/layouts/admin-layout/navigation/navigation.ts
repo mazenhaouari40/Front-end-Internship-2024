@@ -35,14 +35,6 @@ export const NavigationItems: NavigationItem[] = [
       classes: 'nav-item',
       icon: 'dashboard'
     },
-    // {
-    //   id: 'User',
-    //   title: 'Ajouter un utilisateur',
-    //   type: 'item',
-    //   url: '/UserForm',
-    //   classes: 'nav-item',
-    //   icon: 'edit'
-    // },
   ]
 },
   {

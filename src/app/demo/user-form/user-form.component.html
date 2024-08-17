@@ -10,33 +10,33 @@
       <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
   
         <div class="form-group">
-          <label for="nom">Nom</label>
+          <label for="nom">Nom * :</label>
           <input id="nom"  class="form-control"  required  [(ngModel)]="userdata.nom" formControlName="nom">
         </div>
   
         <div class="form-group">
-          <label for="e_mail">E-mail</label>
+          <label for="e_mail">E-mail * :</label>
           <input id="e_mail" name="e_mail" class="form-control" required  [(ngModel)]="userdata.email"  formControlName="email" >
         </div>
   
         <div class="form-group">
-          <label for="num_tel">Numéro de Téléphone</label>
+          <label for="num_tel">Numéro de Téléphone * :</label>
           <input id="num_tel" name="num_tel" class="form-control" required [(ngModel)]="userdata.num_tel" formControlName="num_tel">
         </div>
         
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="password">Password * :</label>
           <input type="password" name="password" id="password" class="form-control" formControlName="password" formControlName="password">
         </div>
   
         <div class="form-group">
-            <label for="image">Image</label>
+            <label for="image">Image * :</label>
             <input type="file" id="image" name="image" class="form-control" accept="image/*"  (change)="onFileChange($event)" >
         </div>
 
 
         <div class="form-group">
-          <label for="role">Role</label>
+          <label for="role">Role * :</label>
           <select id="role" name="role" class="form-control" required [(ngModel)]="selectedRole" formControlName="role" >
             <option value="manager">Manager</option>
             <option value="admin">Admin</option>
@@ -45,7 +45,7 @@
         </div>
         
         <div *ngIf="selectedRole === 'collaborateur'" class="form-group">
-          <label for="manager">Manager</label>
+          <label for="manager">Manager * :</label>
           <select id="manager" name="manager" class="form-control" formControlName="manager">
             <option value="">Select Manager</option>
             <option *ngFor="let manager of managerList" [value]="manager.idmanager">
