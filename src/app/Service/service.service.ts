@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ServiceService {
-  private apiUrl = 'http://localhost:8081' ; 
-  // private apiUrl = 'https://backend-jenkins.onrender.com' ; 
+  // private apiUrl = 'http://localhost:8081' ; 
+  private apiUrl = 'https://backend-jenkins.onrender.com' ; 
 
 
   constructor(private http: HttpClient) { }
