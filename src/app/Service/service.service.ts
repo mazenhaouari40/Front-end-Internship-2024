@@ -1,15 +1,15 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { global_var } from 'src/environments/global';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
   // private apiUrl = 'http://localhost:8081' ; 
-  private apiUrl = 'https://backend-jenkins.onrender.com' ; 
-
-
+  // private apiUrl = 'https://backend-jenkins.onrender.com' ; 
+   private apiUrl = global_var.apiurl ; 
   constructor(private http: HttpClient) { }
 
   register(signRequest: any): Observable<any>{

@@ -75,8 +75,6 @@ this.miseajour();
           setTimeout(() => {
             this.miseajour();
           }, 3000); 
-          
-         
       
       });      
         }

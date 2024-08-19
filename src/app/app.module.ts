@@ -9,10 +9,17 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './theme/shared/shared.module';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
+import { StompConfig, StompService } from '@stomp/ng2-stompjs';
+import { WebSocketService } from './Service/web-socket-service.service';
+
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, SharedModule, BrowserAnimationsModule,ToastrModule.forRoot(), CommonModule ],
-  bootstrap: [AppComponent]
-})
+  bootstrap: [AppComponent],
+  providers: [WebSocketService], // Register the service
+
+
+}
+)
 export class AppModule {}
