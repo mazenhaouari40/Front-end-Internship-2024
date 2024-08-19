@@ -10,9 +10,9 @@ export class WebSocketService {
   private socket$: WebSocketSubject<any>;
   private socketurl = global_var.socketapi ; 
   constructor() {
-    // this.socket$ = new WebSocketSubject('ws://localhost:8081/ws/notifications');
     console.log('wss://'+this.socketurl +'/ws/notifications')
     this.socket$ = new WebSocketSubject('wss://'+this.socketurl +'/ws/notifications');
+    // this.socket$ = new WebSocketSubject('ws://'+this.socketurl +'/ws/notifications');
 
   }
 

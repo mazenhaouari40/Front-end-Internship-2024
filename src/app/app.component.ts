@@ -25,11 +25,8 @@ export class AppComponent {
       setTimeout(() => {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        
-        // Navigate to the login page
         this.router.navigate(['/login']);
       }, 1500);
-      
     }
     });
   }
