@@ -15,60 +15,6 @@ pipeline {
             }
         }
 
-        // stage('Setup Git Configuration') {
-        //     steps {
-        //         bat '''
-        //             git config --global user.email "mazenhaouari97@gmail.com"
-        //             git config --global user.name "mazenhaouari40"
-        //         '''
-        //     }
-        // }
-
-        // stage('Checkout Branch') {
-        //     steps {
-        //         script {
-        //             bat 'git checkout master'  
-        //         }
-        //     }
-        // }
-
-        // stage('Add dist to GitHub repository') {
-        //     steps {
-        //         bat '''
-        //             git add -f .\\dist\\
-        //             git commit -m "Add dist folder to repository from jenkins"
-        //             git push origin master
-        //         '''
-        //     }
-        // }
-
-
-
-
-
-        stage('Deploy to Render') {
-            steps {
-          script {
-                    def renderDeployHook = 'https://api.render.com/deploy/srv-cqp3h788fa8c73c60l90?key=xP1Fg6Z4Cl0'
-                    bat """
-                        curl "${renderDeployHook}"
-                    """
-
-                
-                }
-
-
-            }
-        }
-
-
-      
-    }
-}
-
-
-
-
      // stage('Testing Stage') {
      //        steps {
      //            // bat 'npm run ng test --no-watch --code-coverage'
@@ -85,3 +31,25 @@ pipeline {
         //       bat 'npx kill-port 4200'
         //     }
         // }
+
+
+        stage('Deploy to Render') {
+            steps {
+          script {
+                    def renderDeployHook = 'https://api.render.com/deploy/srv-cqp3h788fa8c73c60l90?key=xP1Fg6Z4Cl0'
+                    bat """
+                        curl "${renderDeployHook}"
+                    """
+                }
+            }
+        }
+
+
+      
+    }
+}
+
+
+
+
+
