@@ -7,7 +7,11 @@
   .auth-wrapper {
     height: 100%;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100vh; // Ensure the wrapper takes full screen height
+
+    display: flex; // Enable Flexbox
+    justify-content: center; // Center horizontally
+    align-items: center; // Center vertically
 
     .saprator {
       position: relative;
@@ -43,7 +47,6 @@
 
       .auth-form {
         flex-direction: column;
-        // background: url('../../../../assets/images/authentication/img-auth-bg.svg');
         min-height: 100vh;
         padding: 24px;
         background-repeat: no-repeat;
@@ -51,6 +54,17 @@
         background-position: left bottom;
         position: relative;
         justify-content: space-between;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center; // Center the form content
+        justify-content: center; // Center vertically within the form
+
+        background-color: $white; // Set background color to white
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); // Optional box shadow for styling
+        border-radius: 8px; // Optional border-radius for a smoother look
+        z-index: 5;
+
         > * {
           position: relative;
           z-index: 5;
