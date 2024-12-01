@@ -30,3 +30,8 @@ Using WebSocket technology, the application ensures that when a manager takes ac
 * Frameworks:    Angular, Spring Boot
 * Database:   MySQL
 * Deployment Platform:  Render
+
+You can also find a detailed highlight of this project at the following link:
+
+https://drive.google.com/file/d/13GEp0mbcqd95j613xTYJB711sSK9VfCV/view?usp=sharing
+
