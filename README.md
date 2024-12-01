@@ -22,7 +22,7 @@ Using WebSocket technology, the application ensures that when a manager takes ac
   - Build
   - Deploy to Render
 
-*Backend Deployment:
+* Backend Deployment:
   - Checkout Code  
   - Build and Test
   - Deploy to Render (Web Service)
